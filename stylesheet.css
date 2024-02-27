@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  background-color: black;
+  color: aliceblue;
+  height: 250vh;
+}
+.navbar {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(0, 0, 0);
+}
+
+.navbar-left {
+  padding-left: 50px;
+}
+
+.navbar-right {
+  padding-right: 20px;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+}
+
+.element {
+  margin: 10px;
+  border: 2px;
+  color: wheat;
+  font-size: 21px;
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 10px;
+}
+
+.home {
+  /*this is for the name and logo*/
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: 85vh;
+}
+
+.home-left {
+  width: 50vh;
+  color: aliceblue;
+  padding-left: 200px;
+  text-align: right;
+}
+
+.home-right {
+  width: 50vh;
+  padding-right: 100px;
+}
+
+/*this is for the logo right*/
+.img1 {
+  height: 300px;
+}
+
+/*this is for the top image*/
+.image {
+  height: 100px;
+  margin: 0;
+}
+/*this is for sai bio*/
+.home-P {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+/*this is for Sai Rangineeni*/
+.home-h1 {
+  font-size: 50px;
+}
+
+/*this is for services*/
+.services {
+  padding: 50px;
+  text-align: center;
+}
+
+/*this is for ser-1*/
+
+.ser-1 {
+  font-family: "Kode Mono", monospace;
+  color: aquamarine;
+
+  /*this is give extra space between letters*/
+  letter-spacing: 3px;
+  font-size: 50px;
+  font-style: italic;
+}
+
+/*this is for all the 3 boxes*/
+.services-sub-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.services-card {
+  /*this is will give space to each 3 boxes to fullfill it*/
+  width: 100vh;
+  border: 2px solid green;
+  margin: 20px;
+  padding: 20px;
+}
+
+.sc-h1 {
+  font-family: "Kode Mono", monospace;
+  font-size: 40px;
+}
+
+.sc-p {
+  font-family: "Kode Mono", monospace;
+  font-size: 20px;
+}
+
+.contact {
+  text-align: center;
+  font-family: "Kode Mono", monospace;
+  font-size: 20px;
+}
+
+.contact-info {
+  font-family: "Kode Mono", monospace;
+  font-size: 20px;
+  color: greenyellow;
+}
+.social-icon-img {
+  height: 50px;
+  /*this will give space between the logo*/
+  padding: 10px;
+}
+
+.test-logo-1 {
+  height: 40px;
+}
+
+.test-logo-2 {
+  height: 40px;
+}
+
+.test-logo-3 {
+  height: 40px;
+}
