@@ -39,14 +39,15 @@ body {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  height: 85vh;
+  height: 80vh;
 }
 
 .home-left {
   width: 50vh;
-  color: aliceblue;
+  color: rgb(203, 234, 243);
   padding-left: 200px;
-  text-align: right;
+  text-align: left;
+  -webkit-text-stroke-color: black 2px;
 }
 
 .home-right {
@@ -66,7 +67,11 @@ body {
 }
 /*this is for sai bio*/
 .home-P {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font: large;
+  display: flex;
+  letter-spacing: 2px;
+  width: 1100px;
+  font-size: 25px;
 }
 /*this is for Sai Rangineeni*/
 .home-h1 {
@@ -83,11 +88,11 @@ body {
 
 .ser-1 {
   font-family: "Kode Mono", monospace;
-  color: aquamarine;
+  color: rgb(85, 170, 178);
 
   /*this is give extra space between letters*/
   letter-spacing: 3px;
-  font-size: 50px;
+  font-size: 51px;
   font-style: italic;
 }
 
@@ -100,7 +105,7 @@ body {
 .services-card {
   /*this is will give space to each 3 boxes to fullfill it*/
   width: 100vh;
-  border: 2px solid green;
+  border: 2px solid rgb(51, 63, 51);
   margin: 20px;
   padding: 20px;
 }
@@ -142,4 +147,11 @@ body {
 
 .test-logo-3 {
   height: 40px;
+}
+
+.contact1 {
+  letter-spacing: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  justify-content: center;
+  display: flex;
 }
