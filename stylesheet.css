@@ -1,157 +1,115 @@
-body {
+body,
+html {
+  height: 110%;
   margin: 0;
-  background-color: black;
-  color: aliceblue;
-  height: 250vh;
-}
-.navbar {
-  justify-content: space-between;
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(0, 0, 0);
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #482aee;
+  scroll-behavior: smooth;
+  transition: 2s;
 }
 
-.navbar-left {
-  padding-left: 50px;
-}
-
-.navbar-right {
-  padding-right: 20px;
-  align-items: center;
-  flex-direction: row;
-  display: flex;
-}
-
-.element {
-  margin: 10px;
-  border: 2px;
-  color: wheat;
-  font-size: 21px;
-  font-weight: bold;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  padding: 10px;
-}
-
-.home {
-  /*this is for the name and logo*/
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
-  height: 80vh;
-}
-
-.home-left {
-  width: 50vh;
-  color: rgb(203, 234, 243);
-  padding-left: 200px;
-  text-align: left;
-  -webkit-text-stroke-color: black 2px;
-}
-
-.home-right {
-  width: 50vh;
-  padding-right: 100px;
-}
-
-/*this is for the logo right*/
-.img1 {
-  height: 300px;
-}
-
-/*this is for the top image*/
-.image {
-  height: 100px;
-  margin: 0;
-}
-/*this is for sai bio*/
-.home-P {
-  font: large;
-  display: flex;
-  letter-spacing: 2px;
-  width: 1100px;
-  font-size: 25px;
-}
-/*this is for Sai Rangineeni*/
-.home-h1 {
-  font-size: 50px;
-}
-
-/*this is for services*/
-.services {
-  padding: 50px;
-  text-align: center;
-}
-
-/*this is for ser-1*/
-
-.ser-1 {
-  font-family: "Kode Mono", monospace;
-  color: rgb(85, 170, 178);
-
-  /*this is give extra space between letters*/
-  letter-spacing: 3px;
-  font-size: 51px;
-  font-style: italic;
-}
-
-/*this is for all the 3 boxes*/
-.services-sub-content {
-  display: flex;
-  flex-direction: row;
-}
-
-.services-card {
-  /*this is will give space to each 3 boxes to fullfill it*/
-  width: 100vh;
-  border: 2px solid rgb(51, 63, 51);
-  margin: 20px;
+header {
+  position: sticky;
+  top: 0;
+  background-color: #0c1431;
+  backdrop-filter: blur(10px);
+  color: #fff;
   padding: 20px;
-}
-
-.sc-h1 {
-  font-family: "Kode Mono", monospace;
-  font-size: 40px;
-}
-
-.sc-p {
-  font-family: "Kode Mono", monospace;
-  font-size: 20px;
-}
-
-.contact {
   text-align: center;
-  font-family: "Kode Mono", monospace;
-  font-size: 20px;
+  z-index: 1000;
 }
 
-.contact-info {
-  font-family: "Kode Mono", monospace;
-  font-size: 20px;
-  color: greenyellow;
+.navbar a {
+  color: #e0e0e0;
+  text-decoration: none;
+  margin: 25px;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+  transition: 1.1s;
 }
-.social-icon-img {
-  height: 50px;
-  /*this will give space between the logo*/
+
+.navbar a:hover {
+  color: #6944d9;
+  transition: 0.5s;
+  font-size: 30px;
+}
+
+.about,
+section {
+  background: linear-gradientrgb(0, 0, 0) backdrop-filter blur(80px);
+  padding: 50px;
+  margin: 20px auto;
+  max-width: 1200px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(86, 40, 226, 0.836);
+  transition: transform 0.5s ease;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  border: 4px solid #007bff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0 auto 2px;
+  display: block;
+}
+
+h1,
+h2 {
+  color: #73a3d7;
+  font-weight: 700;
+  margin: 15px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+p,
+a {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: #67a6e4;
+  transition: color 0.5s ease-in-out;
+}
+
+a:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.project {
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 10px;
+  margin: 30px 0;
+  border-radius: 10px;
+  transition: box-shadow 0.5s ease-in-out, transform 0.5s ease;
 }
 
-.test-logo-1 {
-  height: 40px;
+.project:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 10px 20px rgb(42, 42, 41);
 }
 
-.test-logo-2 {
-  height: 40px;
+.h3 {
+  font-size: 40px;
+  color: #70a1ea;
+  transition: 0.7s;
 }
 
-.test-logo-3 {
-  height: 40px;
-}
-
-.contact1 {
-  letter-spacing: 20px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  justify-content: center;
-  display: flex;
+.footer {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif,
+    Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
