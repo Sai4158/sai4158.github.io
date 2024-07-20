@@ -10,11 +10,11 @@ import { ClipLoader } from "react-spinners";
 const ContactPage = () => {
   const [loading, setLoading] = useState(false);
 
-  //   this is for the function to send the email
+  // Function to send the email
   function sendEmail(e) {
     e.preventDefault();
 
-    // set spinner to true when button is clicked
+    // Set spinner to true when button is clicked
     setLoading(true);
 
     emailjs
@@ -29,9 +29,6 @@ const ContactPage = () => {
           console.log(result.text);
           toast.success("Message sent successfully!", {
             position: "top-center",
-          });
-          toast.success("Message sent successfully!", {
-            position: "bottom-center",
           });
           setLoading(false);
         },
@@ -54,7 +51,7 @@ const ContactPage = () => {
       <main className="pt-1 mb-64 px-4">
         <ToastContainer />
         <section id="contact">
-          <h2 className="text-3xl  text-center text-white">Contact Me</h2>
+          <h2 className="text-3xl text-center text-white">Contact Me</h2>
           <div className="max-w-3xl mx-auto mt-10">
             <form
               onSubmit={sendEmail}
@@ -73,7 +70,7 @@ const ContactPage = () => {
                   id="from_name"
                   required
                   placeholder="Enter Name"
-                  className="bg-black  bg-opacity-30 backdrop:blur-3xl shadow appearance-none border border-transparent rounded w-full py-2 px-3 text-white font-extralight leading-tight focus:outline-none focus:shadow-outline   bg-opacity-70 backdrop-blur-md transition duration-300"
+                  className="bg-black bg-opacity-30 backdrop:blur-3xl shadow appearance-none border border-transparent rounded w-full py-2 px-3 text-white font-extralight leading-tight focus:outline-none focus:shadow-outline transition duration-300"
                 />
               </div>
               <div className="mb-4">
@@ -89,12 +86,12 @@ const ContactPage = () => {
                   id="reply_to"
                   required
                   placeholder="Enter Email"
-                  className="bg-black  bg-opacity-30 backdrop:blur-3xl shadow appearance-none border border-transparent rounded w-full py-2 px-3 text-white font-extralight leading-tight focus:outline-none focus:shadow-outline   bg-opacity-70 backdrop-blur-md transition duration-300"
+                  className="bg-black bg-opacity-30 backdrop:blur-3xl shadow appearance-none border border-transparent rounded w-full py-2 px-3 text-white font-extralight leading-tight focus:outline-none focus:shadow-outline transition duration-300"
                 />
               </div>
               <div className="mb-4">
                 <label
-                  className="block text-white text-lg  mb-2"
+                  className="block text-white text-lg mb-2"
                   htmlFor="message"
                 >
                   Message
@@ -104,7 +101,7 @@ const ContactPage = () => {
                   id="message"
                   required
                   placeholder=". . ."
-                  className="bg-black  bg-opacity-30 backdrop:blur-3xl shadow appearance-none border border-transparent rounded w-full py-2 px-3 text-white font-extralight leading-tight focus:outline-none focus:shadow-outline   bg-opacity-70 backdrop-blur-md transition duration-300"
+                  className="bg-black bg-opacity-30 backdrop:blur-3xl shadow appearance-none border border-transparent rounded w-full py-2 px-3 text-white font-extralight leading-tight focus:outline-none focus:shadow-outline transition duration-300"
                 ></textarea>
               </div>
               <div className="flex items-center justify-between">
@@ -113,7 +110,6 @@ const ContactPage = () => {
                   className="bg-blue-700 hover:bg-green-700 text-white py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300 w-32"
                   disabled={loading}
                 >
-                  {/* if the loading is true then spinner if false then it will show "Send" */}
                   {loading ? (
                     <ClipLoader size={24} color={"#ffffff"} />
                   ) : (
@@ -143,7 +139,7 @@ const ContactPage = () => {
                 </a>
                 <a
                   href="mailto:sairangineeni1@gmail.com"
-                  className=" hover:text-red-400 transition duration-300"
+                  className="hover:text-red-400 transition duration-300"
                 >
                   <SiGmail size={30} />
                 </a>

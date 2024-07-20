@@ -1,14 +1,21 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Custom404() {
   return (
     <div className="min-h-screen mt-11 mb-10">
-      <div className="flex flex-col md:flex-row justify-center  text-white px-6 font-thin">
-        <a href="https://www.pranavramesh.dev/" target="_blank">
-          <img
+      <div className="flex flex-col md:flex-row justify-center text-white px-6 font-thin">
+        <a
+          href="https://www.pranavramesh.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
             src="/FunnyPranav.jpg"
             alt="Loading..."
             className="lg:h-96 rounded-lg mb-4 md:mb-0 md:mr-8 transition-transform duration-300 ease-in-out transform hover:scale-105"
+            width={384}
+            height={576}
           />
         </a>
         <div className="text-center md:text-left">

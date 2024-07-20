@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -34,7 +35,7 @@ export default function Page() {
                 , <b>Human-Centered Design & Development</b>,{" "}
                 <b>Data Science</b>
                 <br />
-                Dean's List: Spring 2024, GPA: 3.94
+                Dean&apos;s List: Spring 2024, GPA: 3.94
                 <br />
                 Graduation: May 2026
               </p>
@@ -57,7 +58,7 @@ export default function Page() {
               <div className="flex items-center">
                 <div className="flex-1">
                   <div className="flex-none lg:hidden md:hidden mb-4">
-                    <img
+                    <Image
                       src="/Ctfguide.png"
                       alt="CTFGuide Logo"
                       width={100}
@@ -68,23 +69,6 @@ export default function Page() {
                       }
                     />
                   </div>
-                  {/* <p className="leading-loose">
-                    <strong>Company:</strong> CTFGuide
-                    <br />
-                    <strong>Role:</strong> Software Engineer Intern
-                    <br />
-                    <strong>Duration:</strong> May 2024 - Present (3 months)
-                    <br />
-                    <strong>Location:</strong> State College, PA (Hybrid)
-                    <br />
-                    <br />
-                    As a Software Engineer Intern at CTFGuide, I contributed to
-                    building and optimizing user settings and profile settings.
-                    My role involved working extensively with Next.js,
-                    Javascript, TailwindCSS, React.js, Git, and agile
-                    development practices.
-                  </p> */}
-
                   <p className="leading-loose">
                     <a
                       href="https://ctfguide.com/"
@@ -107,7 +91,7 @@ export default function Page() {
                   </p>
                 </div>
                 <div className="flex-none ml-4 sm:block hidden ">
-                  <img
+                  <Image
                     src="/Ctfguide.png"
                     alt="CTFGuide Logo"
                     width={200}

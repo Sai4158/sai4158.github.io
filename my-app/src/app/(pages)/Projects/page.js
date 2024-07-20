@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Projects() {
   return (
     <div>
@@ -130,10 +132,12 @@ export default function Projects() {
             }
           >
             <h2 className="text-2xl mb-2">Engineering Projects</h2>
-            <img
-              src="CAD.png"
+            <Image
+              src="/CAD.png"
               alt="CAD Project"
               className="rounded-lg h-44 w-full object-cover mt-2"
+              width={400}
+              height={200}
             />
             <p className="mt-4 mb-2">
               Engineered a marble ladder automata using CAD. Crafted with laser
@@ -347,8 +351,7 @@ export default function Projects() {
             <h2 className="text-2xl mb-2">Cookie-Clicker</h2>
             <p className="mb-2">
               Built a simple cookie clicker game using <b>JavaScript</b>,{" "}
-              <b>HTML</b>, and
-              <b>CSS</b>.
+              <b>HTML</b>, and <b>CSS</b>.
             </p>
             <a
               href="https://github.com/Sai4158/Cookie-Clicker"
