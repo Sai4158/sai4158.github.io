@@ -1,17 +1,22 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364); */
-  background: radial-gradient(
+html {
+  /* background: radial-gradient(
     circle at 1.8% 4.8%,
     rgb(17, 23, 58) 0%,
     rgb(58, 85, 148) 90%
-  );
+  ); */
+
+  background: linear-gradient(to top, #09203f 0%, #537895 100%);
+
   background-size: cover;
   background-repeat: no-repeat;
+}
 
+body {
   color: white;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
