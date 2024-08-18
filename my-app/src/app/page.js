@@ -44,7 +44,7 @@ const page = () => {
                 </h1>
                 <p className="text-lg md:text-md text-gray-300 mb-4">
                   I&apos;m a <b>PSU student</b> specializing in{" "}
-                  <b>Human-Centered Design & Development</b> with a focus on{" "}
+                  <b>Human-Centered Design & App Development</b> with a focus on{" "}
                   <b>Data Science</b>. Focused on Full Stack Web Development and
                   Software Engineering.
                 </p>
@@ -64,7 +64,7 @@ const page = () => {
 
                 <a
                   href="/Contact"
-                  className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300"
+                  className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-extralight py-2 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300"
                 >
                   Contact Me
                 </a>
