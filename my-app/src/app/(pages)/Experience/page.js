@@ -35,7 +35,7 @@ export default function Page() {
                 , <b>Human-Centered Design & Development</b>,{" "}
                 <b>Data Science</b>
                 <br />
-                Dean&apos;s List: Spring 2024, GPA: 3.94
+                Dean&apos;s List (GPA: 3.64)
                 <br />
                 Graduation: May 2026
               </p>
@@ -79,7 +79,7 @@ export default function Page() {
                     </a>{" "}
                     , Software Engineer Intern
                     <br />
-                    Duration: May 2024 - Present (3 months)
+                    Duration: May 2024 - August 2024 (3 months)
                     <br />
                     Location: State College, PA (Hybrid)
                     <br />
@@ -124,6 +124,7 @@ export default function Page() {
                 {[
                   "Java",
                   "JavaScript",
+                  "Python",
                   "React.js",
                   "Next.js",
                   "Express.js",
