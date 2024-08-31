@@ -51,7 +51,7 @@ const page = () => {
                 <p className="text-lg md:text-md text-gray-300 mb-4">
                   <b>Skilled in</b> <br />
                   Java, Next.js, JavaScript, Python, React.js, Node.js,
-                  Express.js, SQL, MongoDB, and TailwindCSS.
+                  Express.js, SQL, MongoDB & TailwindCSS.
                 </p>
                 <p className="text-lg md:text-md text-gray-300 mb-6">
                   Please explore my portfolio to see my projects and{" "}

@@ -81,7 +81,7 @@ export default function Page() {
                     <br />
                     Duration: May 2024 - August 2024 (3 months)
                     <br />
-                    Location: State College, PA (Hybrid)
+                    Location: State College, PA
                     <br />
                     <br />
                     Focused on building and optimizing user settings and profile
