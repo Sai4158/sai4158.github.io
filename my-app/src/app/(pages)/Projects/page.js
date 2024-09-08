@@ -68,7 +68,7 @@ export default function Projects() {
             </div>
             <div className="mt-4">
               <a
-                href="https://drexel.edu/cci/stories/hundreds-of-coders-harness-ai-for-social-good-at-philly-codefest-2024-sponsored-by-drexel-cci/"
+                href="https://drexel.edu/cci/stories/hundreds-of-coders-harness-ai-for-social-good-at-philly-codefest-2024-sponsored-by-drexel-cci/#:~:text=for%20Comcast%20Products%3A-,Comcast%20Inquirer,-Members%3A%20Sai"
                 target="_blank"
                 className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
                 onClick={(e) => e.stopPropagation()}

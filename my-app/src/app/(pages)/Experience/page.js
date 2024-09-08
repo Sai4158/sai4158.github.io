@@ -28,12 +28,14 @@ export default function Page() {
                 <a
                   href="https://www.psu.edu/"
                   target="_blank"
-                  className="hover:underline transition-transform font-semibold"
+                  className="hover:underline transition-transform font-semibold "
                 >
                   The Pennsylvania State University
                 </a>
-                , <b>Human-Centered Design & Development</b>,{" "}
-                <b>Data Science</b>
+                <br />
+                B.S. in <b>Human-Centered Design & Development</b>,
+                Specialization in
+                <b> Data Science</b>
                 <br />
                 Dean&apos;s List (GPA: 3.64)
                 <br />
@@ -76,7 +78,7 @@ export default function Page() {
                       className="underline hover:text-blue-400 transition-transform cursor-pointer"
                     >
                       <b>CTFGuide</b>
-                    </a>{" "}
+                    </a>
                     , Software Engineer Intern
                     <br />
                     Duration: May 2024 - August 2024 (3 months)
@@ -132,6 +134,9 @@ export default function Page() {
                   "SQL",
                   "MongoDB",
                   "RESTful API",
+                  "MVC",
+                  "OOP",
+                  "DSA",
                   "Tailwind CSS",
                   "HTML5",
                   "Vite",
@@ -144,7 +149,6 @@ export default function Page() {
                   "FL Studio",
                   "Adobe Audition",
                   "Adobe Illustrator",
-                  "Video Editing",
                   "After Effects",
                   "Adobe Photoshop",
                   "Microsoft Office",

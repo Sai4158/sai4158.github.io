@@ -43,18 +43,22 @@ const page = () => {
                   Sai Rangineeni
                 </h1>
                 <p className="text-lg md:text-md text-gray-300 mb-4">
-                  I&apos;m a <b>PSU student</b> specializing in{" "}
-                  <b>Human-Centered Design & App Development</b> with a focus on{" "}
-                  <b>Data Science</b>. Focused on Full Stack Web Development and
-                  Software Engineering.
+                  I&apos;m a <b>PSU student</b> pursuing a B.S. in{" "}
+                  <b>Human-Centered Design & Development</b> with a focus on{" "}
+                  <b>Data Science</b>. Focused on OOP, MVC, full-stack
+                  development, and DSA.
                 </p>
                 <p className="text-lg md:text-md text-gray-300 mb-4">
                   <b>Skilled in</b> <br />
-                  Java, Next.js, JavaScript, Python, React.js, Node.js,
+                  Java, Python, Next.js, JavaScript, React.js, Node.js,
                   Express.js, SQL, MongoDB & TailwindCSS.
                 </p>
                 <p className="text-lg md:text-md text-gray-300 mb-6">
-                  Please explore my portfolio to see my projects and{" "}
+                  Please explore my portfolio to view my{" "}
+                  <a href="/Projects" className="hover:underline">
+                    <b>projects</b>
+                  </a>{" "}
+                  and{" "}
                   <a href="/Experience" className="hover:underline">
                     <b>experience</b>
                   </a>

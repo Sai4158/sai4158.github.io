@@ -107,7 +107,7 @@ const ContactPage = () => {
               <div className="flex items-center justify-between">
                 <button
                   type="submit"
-                  className="bg-blue-700 hover:bg-green-700 text-white py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300 w-32"
+                  className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300 w-32"
                   disabled={loading}
                 >
                   {loading ? (
