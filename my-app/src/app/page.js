@@ -1,8 +1,30 @@
 "use client";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const page = () => {
+  const greetings = [
+    "Hi",
+    "Hola",
+    "Hello",
+    "Bonjour",
+    "Greetings",
+    "Welcome",
+    "Namaste",
+    "Hey",
+  ];
+  const [currentGreeting, setCurrentGreeting] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentGreeting((prev) => (prev + 1) % greetings.length);
+    }, 3300); // Change greeting every 2.5 seconds
+
+    return () => clearInterval(interval);
+  }, [greetings.length]);
+
   return (
     <div className="pb-10">
       <main className="px-4">
@@ -39,22 +61,56 @@ const page = () => {
               <div className="w-full md:w-2/3 mt-6 md:mt-0 md:ml-6 text-center md:text-left px-4 md:px-0">
                 <br />
                 <br />
-                <h1 className="text-4xl md:text-5xl text-white mb-4">
-                  Sai Rangineeni
+                <h1 className="text-3xl md:text-5xl text-white mb-4 flex flex-col md:flex-row items-center">
+                  <motion.div
+                    className="flex items-center"
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentGreeting} // Unique key for each greeting
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
+                        className="inline-block text-center md:text-left"
+                      >
+                        {greetings[currentGreeting] + "!,"}
+                      </motion.div>
+                    </AnimatePresence>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1.2, x: 0 }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    className="inline-block mt-2 md:mt-0 md:ml-4 text-center md:text-left"
+                  >
+                    I&apos;m Sai Rangineeni
+                  </motion.div>
                 </h1>
+
                 <p className="text-lg md:text-md text-gray-300 mb-4">
-                  I&apos;m a <b>PSU student</b> pursuing a B.S. in{" "}
-                  <b>Human-Centered Design & Development</b> with a focus on{" "}
-                  <b>Data Science</b>. Focused on OOP, MVC, full-stack
-                  development, and DSA.
+                  Junior at <b>Penn State</b> pursuing a{" "}
+                  <b>B.S. in Application Development</b>.
                 </p>
-                <p className="text-lg md:text-md text-gray-300 mb-4">
-                  <b>Skilled in</b> <br />
+                {/* <p className="text-sm md:text-sm text-gray-300 mb-4">
+                   <b>Skilled in</b> <br /> 
                   Java, Python, Next.js, JavaScript, React.js, Node.js,
                   Express.js, SQL, MongoDB & TailwindCSS.
+                </p> */}
+
+                <p className="text-lg md:text-md text-gray-300 mb-4">
+                  I enjoy solving problems, building applications, and learning
+                  new stuff. My focus is on full-stack development, software
+                  engineering, and data structures & algorithms.
                 </p>
-                <p className="text-lg md:text-md text-gray-300 mb-6">
-                  Please explore my portfolio to view my{" "}
+
+                <p className="text-md md:text-md text-gray-300 mb-6">
+                  Explore my portfolio to view my{" "}
                   <a href="/Projects" className="hover:underline">
                     <b>projects</b>
                   </a>{" "}
@@ -62,8 +118,7 @@ const page = () => {
                   <a href="/Experience" className="hover:underline">
                     <b>experience</b>
                   </a>
-                  . Feel free to reach out to me for any opportunities or
-                  collaborations.
+                  .
                 </p>
 
                 <a
