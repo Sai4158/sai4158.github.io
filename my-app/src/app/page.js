@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const page = () => {
+export default function Page() {
   const greetings = [
     "Hi",
     "Hola",
@@ -158,6 +158,4 @@ const page = () => {
       </main>
     </div>
   );
-};
-
-export default page;
+}
