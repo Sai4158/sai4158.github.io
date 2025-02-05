@@ -1,5 +1,6 @@
 "use client";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -133,6 +134,7 @@ export default function Page() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500 hover:text-blue-400 transition duration-300"
+                    aria-label="Linkedin"
                   >
                     <FaLinkedin size={30} />
                   </a>
@@ -140,13 +142,23 @@ export default function Page() {
                     href="https://github.com/Sai4158"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-500 hover:text-blue-400 transition duration-300"
+                    className="text-gray-200 hover:text-blue-400 transition duration-300"
+                    aria-label="Github"
                   >
                     <FaGithub size={30} />
                   </a>
                   <a
+                    href="https://leetcode.com/u/Sairangineeni/"
+                    target="_blank"
+                    className="text-orange-500 hover:text-blue-400 transition duration-300"
+                    aria-label="Leetcode"
+                  >
+                    <SiLeetcode size={30} />
+                  </a>
+                  <a
                     href="mailto:sairangineeni1@gmail.com"
-                    className="text-blue-500 hover:text-blue-400 transition duration-300"
+                    className="text-slate-200 hover:text-blue-400 transition duration-300"
+                    aria-label="Email"
                   >
                     <FaEnvelope size={30} />
                   </a>
