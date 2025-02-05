@@ -22,24 +22,26 @@ export default function Page() {
                 >
                   <path d="M479.33-120 192.67-276.67v-240L40-600l439.33-240L920-600v318h-66.67v-280L766-516.67v240L479.33-120Zm0-316 301.34-164-301.34-162-300 162 300 164Zm0 240.33 220-120.66v-162.34L479.33-360l-220-120v163.67l220 120.66ZM480-436Zm-.67 79.33Zm0 0Z" />
                 </svg>
-                Education
-              </h3>
-              <p className="leading-loose">
                 <a
                   href="https://www.psu.edu/"
                   target="_blank"
-                  className="hover:underline transition-transform font-semibold "
+                  className="hover:underline transition-transform  texl-2xl
+                  "
                 >
                   The Pennsylvania State University
                 </a>
+              </h3>
+              <p className="leading-loose">
+                B.S. in <b>Application Development</b>, Focus on{" "}
+                <b>Data Science</b>
                 <br />
-                B.S. in <b>Human-Centered Design & Development</b>,
-                Specialization in
-                <b> Data Science</b>
+                <b>Dean&apos;s List:</b> (GPA: 3.73)
                 <br />
-                Dean&apos;s List (GPA: 3.64)
+                <b>Graduation:</b> May 2026
                 <br />
-                Graduation: May 2026
+                <b>Coursework: </b> Data Structures & Algorithms,
+                Object-Oriented Programming, Web & Mobile Development,
+                Databases, Cloud Computing, Distributed Systems
               </p>
             </div>
 
@@ -139,7 +141,7 @@ export default function Page() {
                   "DSA",
                   "Tailwind CSS",
                   "HTML5",
-                  "Vite",
+                  "React Native",
                   "Postman",
                   "Wireframes",
                   "Web Design",
