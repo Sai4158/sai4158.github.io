@@ -127,6 +127,7 @@ export default function Page() {
               <div className="flex flex-wrap gap-2 mt-6">
                 {[
                   "Java",
+                  "Spring Boot",
                   "JavaScript",
                   "Python",
                   "React.js",
@@ -145,7 +146,6 @@ export default function Page() {
                   "Postman",
                   "Wireframes",
                   "Web Design",
-                  "Web Development",
                   "Git",
                   "CAD",
                   "FL Studio",
