@@ -25,6 +25,14 @@ export default function Projects() {
             }
           >
             <h2 className="text-2xl mb-2">Comcast Inquire</h2>
+            <Image
+              src="/ComcastInquire.png"
+              alt="Comcast Inquire Project"
+              className="rounded-lg h-44 w-full object-cover mt-2"
+              width={400}
+              height={200}
+            />
+            <br />
             <p className="mb-2">
               Developed a chat assistant leveraging GPT-4 for enhancing Comcast
               sales and marketing efficiency. Utilized <b>Next.js</b> for
@@ -86,6 +94,14 @@ export default function Projects() {
             }
           >
             <h2 className="text-2xl mb-2">UMoments</h2>
+            <Image
+              src="/UMoment.png"
+              alt="UMoments Project"
+              className="rounded-lg h-44 w-full object-cover mt-2"
+              width={400}
+              height={200}
+            />
+            <br />
             <p className="mb-2">
               Created a centralized platform for university students to discover
               and track campus events. Built with <b>Next.js</b> for fast and
