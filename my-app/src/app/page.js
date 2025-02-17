@@ -106,8 +106,8 @@ export default function Page() {
 
                 <p className="text-lg md:text-md text-gray-300 mb-4">
                   I enjoy solving problems, building applications, and learning
-                  new stuff. My focus is on full-stack development, software
-                  engineering, and data structures & algorithms.
+                  new stuff. I focus on full-stack development, software
+                  engineering, and data science.
                 </p>
 
                 <p className="text-md md:text-md text-gray-300 mb-6">
