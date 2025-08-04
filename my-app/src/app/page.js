@@ -95,7 +95,7 @@ export default function Page() {
                 </h1>
 
                 <p className="text-lg md:text-md text-gray-300 mb-4">
-                  Junior at <b>Penn State</b> pursuing a{" "}
+                  Senior at <b>Penn State</b> pursuing a{" "}
                   <b>B.S. in Application Development</b>.
                 </p>
                 {/* <p className="text-sm md:text-sm text-gray-300 mb-4">
@@ -106,8 +106,7 @@ export default function Page() {
 
                 <p className="text-lg md:text-md text-gray-300 mb-4">
                   I enjoy solving problems, building applications, and learning
-                  new stuff. I focus on full-stack development, software
-                  engineering, and data science.
+                  new stuff.
                 </p>
 
                 <p className="text-md md:text-md text-gray-300 mb-6">

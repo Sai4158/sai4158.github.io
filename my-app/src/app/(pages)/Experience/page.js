@@ -10,7 +10,7 @@ export default function Page() {
         <section id="experience" className="">
           <h2 className="text-3xl text-center mb-10">Experience</h2>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-md mb-8 backdrop-blur-md hover:scale-105 transition-transform duration-1000 ">
+            <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-md mb-8 backdrop-blur-md">
               <h3 className="text-2xl mb-2 flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -25,8 +25,7 @@ export default function Page() {
                 <a
                   href="https://www.psu.edu/"
                   target="_blank"
-                  className="hover:underline transition-transform  texl-2xl
-                  "
+                  className="hover:underline transition-transform  texl-2xl"
                 >
                   The Pennsylvania State University
                 </a>
@@ -35,7 +34,7 @@ export default function Page() {
                 B.S. in <b>Application Development</b>, Focus on{" "}
                 <b>Data Science</b>
                 <br />
-                <b>Dean&apos;s List:</b> (GPA: 3.73)
+                <b>Dean&apos;s List:</b> (GPA: 3.78)
                 <br />
                 <b>Graduation:</b> May 2026
                 <br />
@@ -45,8 +44,9 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="bg-black bg-opacity-25 p-6 rounded-lg shadow-md mb-8 backdrop-blur-md hover:scale-105 transition-transform duration-1000 ">
-              <h3 className="text-2xl  mb-2 flex items-center">
+            {/* --- Updated Internship Section --- */}
+            <div className="bg-black bg-opacity-10 p-6 rounded-lg shadow-xl mb-8">
+              <h3 className="text-2xl mb-2 flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="40px"
@@ -59,57 +59,78 @@ export default function Page() {
                 </svg>
                 Internship
               </h3>
-              <div className="flex items-center">
-                <div className="flex-1">
-                  <div className="flex-none lg:hidden md:hidden mb-4">
+
+              {/* Vertical Timeline */}
+              <div className="relative mt-8 border-l border-gray-600 ml-3">
+                {/* STiBaRC Experience */}
+                <div className="mb-10 pl-8 relative">
+                  <div className="absolute left-[-9px] top-1.5 w-4 h-4 rounded-full bg-slate-800 border-2 border-blue-400"></div>
+                  <div className="overflow-hidden">
+                    {" "}
+                    {/* Fix for float layout */}
+                    <Image
+                      src="/stibarc.png"
+                      alt="STiBaRC Logo"
+                      width={128}
+                      height={45}
+                      className="float-right ml-4 mb-2 rounded-md cursor-pointer"
+                      onClick={() =>
+                        window.open("https://stibarc.com/", "_blank")
+                      }
+                    />
+                    <p className="text-lg">
+                      <a href="#" className="font-bold hover:underline">
+                        STiBaRC, LLC
+                      </a>
+                      , Software Engineer Intern
+                    </p>
+                    <p className="text-sm text-gray-400">
+                      Duration: May 2025 - August 2025 (4 mos)
+                    </p>
+                    <p className="text-sm text-gray-400">
+                      Location: Delaware, OH
+                    </p>
+                  </div>
+                </div>
+
+                {/* CTFGuide Experience */}
+                <div className="pl-8 relative">
+                  <div className="absolute left-[-9px] top-1.5 w-4 h-4 rounded-full bg-slate-800 border-2 border-blue-400"></div>
+                  <div className="overflow-hidden">
+                    {" "}
+                    {/* Fix for float layout */}
                     <Image
                       src="/Ctfguide.png"
                       alt="CTFGuide Logo"
-                      width={100}
-                      height={100}
-                      className="hover:opacity-80 cursor-pointer"
+                      width={96}
+                      height={96}
+                      className="float-right ml-4 mb-2 rounded-lg cursor-pointer"
                       onClick={() =>
                         window.open("https://ctfguide.com", "_blank")
                       }
                     />
+                    <p className="text-lg">
+                      <a
+                        href="https://ctfguide.com/"
+                        target="_blank"
+                        className="font-bold hover:underline"
+                      >
+                        CTFGuide
+                      </a>
+                      , Software Engineer Intern
+                    </p>
+                    <p className="text-sm text-gray-400">
+                      Duration: May 2024 - August 2024 (4 mos)
+                    </p>
+                    <p className="text-sm text-gray-400">
+                      Location: State College, PA
+                    </p>
                   </div>
-                  <p className="leading-loose">
-                    <a
-                      href="https://ctfguide.com/"
-                      target="_blank"
-                      className="underline hover:text-blue-400 transition-transform cursor-pointer"
-                    >
-                      <b>CTFGuide</b>
-                    </a>
-                    , Software Engineer Intern
-                    <br />
-                    Duration: May 2024 - August 2024 (3 months)
-                    <br />
-                    Location: State College, PA
-                    <br />
-                    <br />
-                    Focused on building and optimizing user settings and profile
-                    settings using <b>Next.js</b>, <b>JavaScript</b>,{" "}
-                    <b>TailwindCSS</b>, <b>Express.js</b>, <b>Git</b>, and{" "}
-                    <b>Agile development</b>.
-                  </p>
-                </div>
-                <div className="flex-none ml-4 sm:block hidden ">
-                  <Image
-                    src="/Ctfguide.png"
-                    alt="CTFGuide Logo"
-                    width={200}
-                    height={200}
-                    className="hover:opacity-90 hover:scale-110 z-20 transition-transform cursor-pointer"
-                    onClick={() =>
-                      window.open("https://ctfguide.com", "_blank")
-                    }
-                  />
                 </div>
               </div>
             </div>
 
-            <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-md backdrop-blur-md hover:scale-105 transition-transform duration-1000">
+            <div className="bg-white bg-opacity-10 p-6 rounded-lg shadow-md backdrop-blur-md">
               <h3 className="text-2xl mb-4 flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
