@@ -14,6 +14,50 @@ export default function Projects() {
         </section>
 
         <section className="max-w-6xl mx-auto mt-10 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 masonry">
+          {/* GV Cricket Scorekeeper */}
+          <div
+            className="bg-white bg-opacity-10 p-6 rounded-lg shadow-md cursor-pointer break-inside hover:scale-105 transition-transform duration-700"
+            onClick={() => window.open("https://gvcricket.com", "_blank")}
+          >
+            <h2 className="text-2xl mb-2">GV Cricket Scorekeeper</h2>
+            <Image
+              src="/gvLogo.webp"
+              alt="GV Cricket Scorekeeper Project"
+              className="rounded-lg h-44 w-full object-cover mt-2"
+              width={400}
+              height={200}
+            />
+            <br />
+            <p className="mb-2">
+              A complete, end-to-end solution for managing and scoring cricket
+              matches. Features a dynamic UI with animated gradients, session
+              management, team selection, an interactive coin toss, live umpire
+              and spectator modes, and a final results page with charts.
+            </p>
+            <p className="mb-2">
+              <b>Tech Stack:</b> Next.js, React 19, Tailwind CSS, MongoDB,
+              Mongoose, Framer Motion, and Vercel.
+            </p>
+            <a
+              href="https://github.com/Sai4158/gvcricket"
+              target="_blank"
+              className="text-blue-500 hover:text-blue-400"
+              onClick={(e) => e.stopPropagation()}
+            >
+              GitHub Repo
+            </a>
+            <div className="mt-4">
+              <a
+                href="https://gvcricket.com"
+                target="_blank"
+                className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Try it out
+              </a>
+            </div>
+          </div>
+
           {/* Comcast Inquire */}
           <div
             className="bg-white bg-opacity-10 p-6 rounded-lg shadow-md cursor-pointer break-inside hover:scale-105 transition-transform duration-700"
