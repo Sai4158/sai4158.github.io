@@ -95,8 +95,12 @@ export default function Page() {
                 </h1>
 
                 <p className="text-lg md:text-md text-gray-300 mb-4">
-                  Senior at <b>Penn State</b> pursuing a{" "}
-                  <b>B.S. in Application Development</b>.
+                  Senior at <span className="font-light">Penn State</span>{" "}
+                  pursuing a{" "}
+                  <span className="font-light">
+                    B.S. in Application Development
+                  </span>
+                  .
                 </p>
                 {/* <p className="text-sm md:text-sm text-gray-300 mb-4">
                    <b>Skilled in</b> <br /> 
@@ -112,11 +116,11 @@ export default function Page() {
                 <p className="text-md md:text-md text-gray-300 mb-6">
                   Explore my portfolio to view my{" "}
                   <a href="/Projects" className="hover:underline">
-                    <b>projects</b>
+                    <span className="font-light">projects</span>
                   </a>{" "}
                   and{" "}
                   <a href="/Experience" className="hover:underline">
-                    <b>experience</b>
+                    <span className="font-light">experience</span>
                   </a>
                   .
                 </p>

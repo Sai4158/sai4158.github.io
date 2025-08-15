@@ -1,11 +1,14 @@
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar";
 import PageTransition from "./Components/PageTransition";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata = {
   title: "Sai R | Portfolio",
@@ -60,7 +63,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
 
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <SpeedInsights />
         <PageTransition>
           <div className="z-50 pb-9">
