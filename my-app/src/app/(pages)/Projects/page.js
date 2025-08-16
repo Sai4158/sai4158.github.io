@@ -1,6 +1,7 @@
 "use client";
 
 import ProjectCard from "../../Components/ProjectCard";
+import { motion } from "framer-motion";
 
 const featuredProjects = [
   {
@@ -25,7 +26,7 @@ const featuredProjects = [
     title: "Comcast Inquire",
     imageUrl: "/ComcastInquire.png",
     description:
-      "A chat assistant leveraging GPT-4 for enhancing Comcast sales and marketing efficiency.",
+      "An AI-powered customer support agent that leverages GPT-4 to provide intelligent assistance and enhance customer service efficiency.",
     tags: ["Next.js", "GPT-4", "Redis", "Clerk"],
     githubUrl: "https://github.com/Laphatize/comcast-inquire",
     liveUrl: "https://comcast-inquire.vercel.app/",
@@ -107,34 +108,137 @@ const otherProjects = [
 
 export default function Projects() {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <main className="pt-2 px-4 pb-12 mb-14">
-        <section className="text-center">
-          <h1 className="text-3xl text-center mb-10">My Projects</h1>
-        </section>
+        <motion.section
+          className="text-center"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+        >
+          <motion.h1
+            className="text-3xl text-center mb-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 2,
+              delay: 0.8,
+              ease: "easeOut",
+            }}
+          >
+            My Projects
+          </motion.h1>
+        </motion.section>
 
-        <section className="max-w-6xl mx-auto mt-16">
-          <h2 className="text-3xl font-light text-white mb-8">
+        <motion.section
+          className="max-w-6xl mx-auto mt-16"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.8, delay: 1.2, ease: "easeOut" }}
+        >
+          <motion.h2
+            className="text-3xl font-light text-white mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 1.5,
+              delay: 1.8,
+              ease: "easeOut",
+            }}
+          >
             Featured Projects
-          </h2>
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+          </motion.h2>
+          <motion.div
+            className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 2.2, ease: "easeOut" }}
+          >
+            {featuredProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{
+                  y: 30,
+                  opacity: 0,
+                }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.8,
+                  delay: 2.5 + index * 0.2,
+                  ease: "easeOut",
+                }}
+                whileHover={{
+                  y: -5,
+                  transition: { duration: 0.4, ease: "easeOut" },
+                }}
+              >
+                <ProjectCard project={project} index={index} />
+              </motion.div>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
-        <section className="max-w-6xl mx-auto mt-16">
-          <h2 className="text-3xl font-light text-white mb-8">
+        <motion.section
+          className="max-w-6xl mx-auto mt-16"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.8, delay: 4.5, ease: "easeOut" }}
+        >
+          <motion.h2
+            className="text-3xl font-light text-white mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 1.5,
+              delay: 5.2,
+              ease: "easeOut",
+            }}
+          >
             Other Projects
-          </h2>
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {otherProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+          </motion.h2>
+          <motion.div
+            className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 5.8, ease: "easeOut" }}
+          >
+            {otherProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{
+                  y: 30,
+                  opacity: 0,
+                }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.8,
+                  delay: 6.2 + index * 0.2,
+                  ease: "easeOut",
+                }}
+                whileHover={{
+                  y: -5,
+                  transition: { duration: 0.4, ease: "easeOut" },
+                }}
+              >
+                <ProjectCard
+                  project={project}
+                  index={index + featuredProjects.length}
+                />
+              </motion.div>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
       </main>
-    </div>
+    </motion.div>
   );
 }

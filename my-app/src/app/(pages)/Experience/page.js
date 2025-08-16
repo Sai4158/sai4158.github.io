@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const education = {
   university: "The Pennsylvania State University",
@@ -88,33 +89,124 @@ const skills = [
 
 export default function Page() {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <main className="pt-1 pb-20 px-4">
-        <section id="experience" className="">
-          <h2 className="text-3xl text-center mb-10">Experience</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 hover:scale-105 transition-transform duration-700">
-              <h3 className="text-2xl mb-8 flex items-center">
-                <svg
+        <motion.section
+          id="experience"
+          className=""
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+        >
+          <motion.h2
+            className="text-3xl text-center mb-10"
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          >
+            Experience
+          </motion.h2>
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+          >
+            <motion.div
+              className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10"
+              initial={{ x: -100, opacity: 0, scale: 0.95 }}
+              animate={{ x: 0, opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+              whileHover={{
+                scale: 1.02,
+                y: -5,
+                transition: { duration: 0.3, ease: "easeOut" },
+              }}
+            >
+              <motion.h3
+                className="text-2xl mb-8 flex items-center"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
+              >
+                <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="40px"
                   viewBox="0 -960 960 960"
                   width="40px"
                   fill="white"
                   className="mr-2"
+                  initial={{ rotate: -180, scale: 0 }}
+                  animate={{ rotate: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 1.2,
+                    ease: "easeOut",
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 15,
+                  }}
                 >
                   <path d="M146.67-120q-27 0-46.84-19.83Q80-159.67 80-186.67v-466.66q0-27 19.83-46.84Q119.67-720 146.67-720H320v-93.33q0-27 19.83-46.84Q359.67-880 386.67-880h186.66q27 0 46.84 19.83Q640-840.33 640-813.33V-720h173.33q27 0 46.84 19.83Q880-680.33 880-653.33v466.66q0 27-19.83 46.84Q840.33-120 813.33-120H146.67Zm0-66.67h666.66v-466.66H146.67v466.66Zm240-533.33h186.66v-93.33H386.67V-720Zm-240 533.33v-466.66 466.66Z" />
-                </svg>
+                </motion.svg>
                 Experience
-              </h3>
+              </motion.h3>
 
-              <div className="relative border-l-2 border-blue-400/30 ml-3 mt-4 pt-2">
+              <motion.div
+                className="relative border-l-2 border-blue-400/30 ml-3 mt-4 pt-2"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                transition={{ duration: 1, delay: 1.4, ease: "easeOut" }}
+              >
                 {internships.map((internship, index) => (
-                  <div key={index} className="mb-10 pl-8 relative group">
-                    <div className="absolute left-[-9px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-slate-800 border-2 border-blue-400 group-hover:bg-blue-300 transition-colors duration-300"></div>
-                    <div className="flex justify-between items-center">
+                  <motion.div
+                    key={index}
+                    className="mb-10 pl-8 relative group"
+                    initial={{ x: -50, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 1.6 + index * 0.3,
+                      ease: "easeOut",
+                    }}
+                    whileHover={{ x: 10, transition: { duration: 0.2 } }}
+                  >
+                    <motion.div
+                      className="absolute left-[-9px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-slate-800 border-2 border-blue-400 group-hover:bg-blue-300 transition-colors duration-300"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 1.8 + index * 0.3,
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                      }}
+                    ></motion.div>
+                    <motion.div
+                      className="flex justify-between items-center"
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{
+                        duration: 0.6,
+                        delay: 2 + index * 0.3,
+                        ease: "easeOut",
+                      }}
+                    >
                       <div>
-                        <p className="text-lg text-white">
+                        <motion.p
+                          className="text-lg text-white"
+                          initial={{ x: -20, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 2.2 + index * 0.3,
+                          }}
+                        >
                           <a
                             href={internship.url}
                             target="_blank"
@@ -123,41 +215,103 @@ export default function Page() {
                             {internship.company}
                           </a>
                           , {internship.role}
-                        </p>
-                        <p className="text-sm text-gray-400">
+                        </motion.p>
+                        <motion.p
+                          className="text-sm text-gray-400"
+                          initial={{ x: -20, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 2.4 + index * 0.3,
+                          }}
+                        >
                           {internship.duration}
-                        </p>
-                        <p className="text-sm text-gray-400">
+                        </motion.p>
+                        <motion.p
+                          className="text-sm text-gray-400"
+                          initial={{ x: -20, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 2.6 + index * 0.3,
+                          }}
+                        >
                           {internship.location}
-                        </p>
+                        </motion.p>
                       </div>
-                      <Image
-                        src={internship.logo}
-                        alt={`${internship.company} Logo`}
-                        width={150}
-                        height={150}
-                        className="rounded-xl cursor-pointer w-36 h-auto hover:opacity-90 hover:scale-110 z-20 transition-transform duration-700"
-                        onClick={() => window.open(internship.url, "_blank")}
-                      />
-                    </div>
-                  </div>
+                      <motion.div
+                        initial={{ x: 50, opacity: 0, scale: 0.8 }}
+                        animate={{ x: 0, opacity: 1, scale: 1 }}
+                        transition={{
+                          duration: 0.8,
+                          delay: 2.8 + index * 0.3,
+                          ease: "easeOut",
+                        }}
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                          transition: { duration: 0.3 },
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Image
+                          src={internship.logo}
+                          alt={`${internship.company} Logo`}
+                          width={150}
+                          height={150}
+                          className="rounded-xl cursor-pointer w-36 h-auto hover:opacity-90 z-20 transition-opacity duration-300"
+                          onClick={() => window.open(internship.url, "_blank")}
+                        />
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
-            <div className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 hover:scale-105 transition-transform duration-700 relative">
-              <div className="flex justify-between items-start">
+              </motion.div>
+            </motion.div>
+            <motion.div
+              className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 relative"
+              initial={{ x: 100, opacity: 0, scale: 0.95 }}
+              animate={{ x: 0, opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
+              whileHover={{
+                scale: 1.02,
+                y: -5,
+                transition: { duration: 0.3, ease: "easeOut" },
+              }}
+            >
+              <motion.div
+                className="flex justify-between items-start"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 3.7, ease: "easeOut" }}
+              >
                 <div>
-                  <h3 className="text-2xl mb-2 flex items-center">
-                    <svg
+                  <motion.h3
+                    className="text-2xl mb-2 flex items-center"
+                    initial={{ x: -30, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 3.9, ease: "easeOut" }}
+                  >
+                    <motion.svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="40px"
                       viewBox="0 -960 960 960"
                       width="40px"
                       fill="white"
                       className="mr-2"
+                      initial={{ rotate: -180, scale: 0 }}
+                      animate={{ rotate: 0, scale: 1 }}
+                      transition={{
+                        duration: 0.8,
+                        delay: 4.1,
+                        ease: "easeOut",
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 15,
+                      }}
                     >
                       <path d="M479.33-120 192.67-276.67v-240L40-600l439.33-240L920-600v318h-66.67v-280L766-516.67v240L479.33-120Zm0-316 301.34-164-301.34-162-300 162 300 164Zm0 240.33 220-120.66v-162.34L479.33-360l-220-120v163.67l220 120.66ZM480-436Zm-.67 79.33Zm0 0Z" />
-                    </svg>
+                    </motion.svg>
                     <a
                       href={education.url}
                       target="_blank"
@@ -165,59 +319,129 @@ export default function Page() {
                     >
                       {education.university}
                     </a>
-                  </h3>
-                  <p className="leading-loose mb-4 text-white">
+                  </motion.h3>
+                  <motion.p
+                    className="leading-loose mb-4 text-white"
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 4.3, ease: "easeOut" }}
+                  >
                     {education.degree}
-                  </p>
+                  </motion.p>
                 </div>
-                <div className="text-right">
+                <motion.div
+                  className="text-right"
+                  initial={{ x: 30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 4.5, ease: "easeOut" }}
+                >
                   <p className="text-sm text-gray-400">
                     {education.graduation}
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <motion.div
+                className="mt-4 flex flex-wrap gap-2"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 4.7, ease: "easeOut" }}
+              >
                 {education.courses.map((course, index) => (
-                  <span
+                  <motion.span
                     key={index}
                     className="bg-white/10 text-white/80 py-0.5 px-2 rounded-full text-[10px] leading-tight"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 4.9 + index * 0.05,
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15,
+                    }}
+                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
                   >
                     {course}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 hover:scale-105 transition-transform duration-700">
-              <h3 className="text-2xl mb-4 flex items-center">
-                <svg
+            <motion.div
+              className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10"
+              initial={{ y: 100, opacity: 0, scale: 0.95 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 6, ease: "easeOut" }}
+              whileHover={{
+                scale: 1.02,
+                y: -5,
+                transition: { duration: 0.3, ease: "easeOut" },
+              }}
+            >
+              <motion.h3
+                className="text-2xl mb-4 flex items-center"
+                initial={{ x: -30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 6.2, ease: "easeOut" }}
+              >
+                <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="40px"
                   viewBox="0 -960 960 960"
                   width="40px"
                   fill="white"
                   className="mr-2"
+                  initial={{ rotate: -180, scale: 0 }}
+                  animate={{ rotate: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: 6.4,
+                    ease: "easeOut",
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 15,
+                  }}
                 >
                   <path d="m320-241.33-240-240 241.33-241.34L369-675 175-481l192.33 192.33L320-241.33ZM638.67-240 591-287.67l194-194L592.67-674 640-721.33l240 240L638.67-240Z" />
-                </svg>
+                </motion.svg>
                 Skills
-              </h3>
+              </motion.h3>
 
-              <div className="flex flex-wrap gap-2 mt-6">
-                {skills.map((skill) => (
-                  <span
+              <motion.div
+                className="flex flex-wrap gap-2 mt-6"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 6.6, ease: "easeOut" }}
+              >
+                {skills.map((skill, index) => (
+                  <motion.span
                     key={skill}
-                    className="bg-white/10 text-white/80 py-2 px-4 rounded-full text-sm hover:bg-white/20 hover:scale-110 transition-all duration-700"
+                    className="bg-white/10 text-white/80 py-2 px-4 rounded-full text-sm hover:bg-white/20 transition-colors duration-300"
+                    initial={{ scale: 0, opacity: 0, y: 20 }}
+                    animate={{ scale: 1, opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 6.8 + index * 0.03,
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 15,
+                    }}
+                    whileHover={{
+                      scale: 1.1,
+                      y: -2,
+                      transition: { duration: 0.2 },
+                    }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </motion.section>
       </main>
-    </div>
+    </motion.div>
   );
 }
