@@ -88,7 +88,7 @@ export default function Page() {
                     }}
                     className="inline-block mt-2 md:mt-0 md:ml-4 text-center md:text-left"
                   >
-                    I'm Sai Rangineeni
+                    I&apos;m Sai Rangineeni
                   </motion.div>
                 </h1>
 
