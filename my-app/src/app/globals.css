@@ -42,6 +42,6 @@ html {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: white;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }

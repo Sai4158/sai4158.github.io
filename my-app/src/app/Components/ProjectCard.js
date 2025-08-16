@@ -7,7 +7,7 @@ import { FiExternalLink } from "react-icons/fi";
 const ProjectCard = ({ project }) => {
   return (
     <div
-      className="bg-white/5 backdrop-blur-lg rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer border border-white/10"
+      className="bg-black/20 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer border border-white/10"
       onClick={() =>
         window.open(project.liveUrl || project.githubUrl, "_blank")
       }
@@ -26,7 +26,7 @@ const ProjectCard = ({ project }) => {
         </div>
       )}
       <div className="p-4">
-        <h3 className="text-xl font-light mb-2">{project.title}</h3>
+        <h3 className="text-xl font-light mb-2 text-white">{project.title}</h3>
         <p className="text-gray-300 text-sm mb-4 h-12 overflow-hidden">
           {project.description}
         </p>

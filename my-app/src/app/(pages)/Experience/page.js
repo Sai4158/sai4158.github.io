@@ -93,7 +93,7 @@ export default function Page() {
         <section id="experience" className="">
           <h2 className="text-3xl text-center mb-10">Experience</h2>
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 hover:scale-105 transition-transform duration-700">
+            <div className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 hover:scale-105 transition-transform duration-700">
               <h3 className="text-2xl mb-8 flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +114,7 @@ export default function Page() {
                     <div className="absolute left-[-9px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-slate-800 border-2 border-blue-400 group-hover:bg-blue-300 transition-colors duration-300"></div>
                     <div className="flex justify-between items-center">
                       <div>
-                        <p className="text-lg">
+                        <p className="text-lg text-white">
                           <a
                             href={internship.url}
                             target="_blank"
@@ -136,7 +136,7 @@ export default function Page() {
                         alt={`${internship.company} Logo`}
                         width={150}
                         height={150}
-                        className="rounded-lg cursor-pointer w-36 h-auto hover:opacity-90 hover:scale-110 z-20 transition-transform duration-700"
+                        className="rounded-xl cursor-pointer w-36 h-auto hover:opacity-90 hover:scale-110 z-20 transition-transform duration-700"
                         onClick={() => window.open(internship.url, "_blank")}
                       />
                     </div>
@@ -144,7 +144,7 @@ export default function Page() {
                 ))}
               </div>
             </div>
-            <div className="bg-white/5 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 hover:scale-105 transition-transform duration-700 relative">
+            <div className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 hover:scale-105 transition-transform duration-700 relative">
               <div className="flex justify-between items-start">
                 <div>
                   <h3 className="text-2xl mb-2 flex items-center">
@@ -166,7 +166,9 @@ export default function Page() {
                       {education.university}
                     </a>
                   </h3>
-                  <p className="leading-loose mb-4">{education.degree}</p>
+                  <p className="leading-loose mb-4 text-white">
+                    {education.degree}
+                  </p>
                 </div>
                 <div className="text-right">
                   <p className="text-sm text-gray-400">
@@ -187,7 +189,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 hover:scale-105 transition-transform duration-700">
+            <div className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 hover:scale-105 transition-transform duration-700">
               <h3 className="text-2xl mb-4 flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
