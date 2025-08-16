@@ -4,6 +4,8 @@ import Navbar from "./Components/Navbar";
 import PageTransition from "./Components/PageTransition";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -64,6 +66,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={montserrat.className}>
+        <ToastContainer />
         <SpeedInsights />
         <PageTransition>
           <div className="z-50 pb-9">

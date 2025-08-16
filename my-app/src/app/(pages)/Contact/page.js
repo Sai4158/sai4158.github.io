@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ClipLoader } from "react-spinners";
 
@@ -27,8 +27,9 @@ const ContactPage = () => {
       .then(
         (result) => {
           console.log(result.text);
-          toast.success("Message sent successfully!", {
+          toast.success("Message sent! Check your email for a confirmation.", {
             position: "top-center",
+            autoClose: 11000,
           });
           setLoading(false);
         },
@@ -49,7 +50,6 @@ const ContactPage = () => {
   return (
     <div>
       <main className="pt-1 mb-64 px-4">
-        <ToastContainer />
         <section id="contact">
           <h2 className="text-3xl text-center text-white">Contact Me</h2>
           <div className="max-w-3xl mx-auto mt-10">
