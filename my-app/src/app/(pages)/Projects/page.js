@@ -60,9 +60,9 @@ const featuredProjects = [
 
 const otherProjects = [
   {
-    title: "Pizza Bill Generator",
+    title: "Bill Generator",
     description:
-      "Demonstrated OOP principles through a comprehensive pizza billing system.",
+      "Demonstrated OOP principles through a comprehensive billing system.",
     tags: ["Java", "OOP"],
     githubUrl:
       "https://github.com/Sai4158/JavaPractice/tree/master/src/pizza_bill_genrator_project",

@@ -6,22 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function Page() {
-  const greetings = [
-    "Hi",
-    "Hola",
-    "Hello",
-    "Bonjour",
-    "Greetings",
-    "Welcome",
-    "Namaste",
-    "Hey",
-  ];
+  const greetings = ["Hi", "Hola", "Hello", "Bonjour", "Greetings", "Welcome"];
   const [currentGreeting, setCurrentGreeting] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentGreeting((prev) => (prev + 1) % greetings.length);
-    }, 3300); // Change greeting every 2.5 seconds
+    }, 4000); // Slower change: 4 seconds
 
     return () => clearInterval(interval);
   }, [greetings.length]);
@@ -74,23 +65,30 @@ export default function Page() {
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={currentGreeting} // Unique key for each greeting
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, filter: "blur(4px)" }}
+                        animate={{ opacity: 1, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, filter: "blur(4px)" }}
                         transition={{ duration: 1, ease: "easeInOut" }}
                         className="inline-block text-center md:text-left"
                       >
-                        {greetings[currentGreeting] + "!,"}
+                        {greetings[currentGreeting] + "!"}
                       </motion.div>
                     </AnimatePresence>
                   </motion.div>
                   <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1.2, x: 0 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    layout
+                    initial={{ opacity: 0, filter: "blur(4px)" }}
+                    animate={{ opacity: 1, filter: "blur(0px)" }}
+                    transition={{
+                      type: "spring",
+                      damping: 20,
+                      stiffness: 100,
+                      duration: 1.5,
+                      ease: "easeInOut",
+                    }}
                     className="inline-block mt-2 md:mt-0 md:ml-4 text-center md:text-left"
                   >
-                    I&apos;m Sai Rangineeni
+                    I'm Sai Rangineeni
                   </motion.div>
                 </h1>
 
@@ -109,8 +107,7 @@ export default function Page() {
                 </p> */}
 
                 <p className="text-lg md:text-md text-gray-300 mb-4">
-                  I enjoy solving problems, building applications, and learning
-                  new stuff.
+                  I enjoy solving problems, building applications, and learning.
                 </p>
 
                 <p className="text-md md:text-md text-gray-300 mb-6">
