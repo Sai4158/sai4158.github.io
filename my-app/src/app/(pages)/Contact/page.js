@@ -114,6 +114,7 @@ const ContactPage = () => {
                 scale: isHovered ? 1.02 : 1,
                 rotateX: mousePosition.y * 0.1,
                 rotateY: mousePosition.x * 0.1,
+                opacity: 1,
               }}
               transition={{
                 type: "spring",
@@ -126,8 +127,6 @@ const ContactPage = () => {
                 transition: { duration: 0.6 },
               }}
               initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
             >
               <motion.div
                 className="mb-4"
