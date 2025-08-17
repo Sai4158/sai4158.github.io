@@ -111,22 +111,22 @@ export default function Projects() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
     >
       <main className="pt-2 px-4 pb-12 mb-14">
         <motion.section
           className="text-center"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.75, delay: 0.15, ease: "easeOut" }}
         >
           <motion.h1
             className="text-3xl text-center mb-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              duration: 2,
-              delay: 0.8,
+              duration: 1,
+              delay: 0.4,
               ease: "easeOut",
             }}
           >
@@ -138,15 +138,15 @@ export default function Projects() {
           className="max-w-6xl mx-auto mt-16"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.8, delay: 1.2, ease: "easeOut" }}
+          transition={{ duration: 0.9, delay: 0.6, ease: "easeOut" }}
         >
           <motion.h2
             className="text-3xl font-light text-white mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              duration: 1.5,
-              delay: 1.8,
+              duration: 0.75,
+              delay: 0.9,
               ease: "easeOut",
             }}
           >
@@ -156,7 +156,7 @@ export default function Projects() {
             className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 2.2, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
           >
             {featuredProjects.map((project, index) => (
               <motion.div
@@ -170,8 +170,8 @@ export default function Projects() {
                   opacity: 1,
                 }}
                 transition={{
-                  duration: 0.8,
-                  delay: 2.5 + index * 0.2,
+                  duration: 0.4,
+                  delay: 1.25 + index * 0.1,
                   ease: "easeOut",
                 }}
                 whileHover={{
@@ -189,15 +189,15 @@ export default function Projects() {
           className="max-w-6xl mx-auto mt-16"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.8, delay: 4.5, ease: "easeOut" }}
+          transition={{ duration: 0.9, delay: 1.4, ease: "easeOut" }}
         >
           <motion.h2
             className="text-3xl font-light text-white mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              duration: 1.5,
-              delay: 5.2,
+              duration: 0.75,
+              delay: 1.6,
               ease: "easeOut",
             }}
           >
@@ -207,7 +207,7 @@ export default function Projects() {
             className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 5.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 1.75, ease: "easeOut" }}
           >
             {otherProjects.map((project, index) => (
               <motion.div
@@ -221,8 +221,8 @@ export default function Projects() {
                   opacity: 1,
                 }}
                 transition={{
-                  duration: 0.8,
-                  delay: 6.2 + index * 0.2,
+                  duration: 0.4,
+                  delay: 2 + index * 0.1,
                   ease: "easeOut",
                 }}
                 whileHover={{
