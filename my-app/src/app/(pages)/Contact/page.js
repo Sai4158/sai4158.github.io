@@ -21,11 +21,15 @@ const ContactPage = () => {
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
 
-    const mouseX = e.clientX - centerX;
-    const mouseY = e.clientY - centerY;
+    const rawX = e.clientX - centerX;
+    const rawY = e.clientY - centerY;
 
-    // Fast magnetic effect
-    setMousePosition({ x: mouseX * 0.08, y: mouseY * 0.08 });
+    // Clamp offsets and reduce sensitivity for a minimal, professional feel
+    const clamp = (v, max) => Math.max(-max, Math.min(max, v));
+    const offsetX = clamp(rawX, rect.width * 0.2);
+    const offsetY = clamp(rawY, rect.height * 0.2);
+
+    setMousePosition({ x: offsetX * 0.01, y: offsetY * 0.01 });
   };
 
   const handleMouseEnter = () => {
@@ -111,20 +115,20 @@ const ContactPage = () => {
               animate={{
                 x: mousePosition.x,
                 y: mousePosition.y,
-                scale: isHovered ? 1.02 : 1,
-                rotateX: mousePosition.y * 0.1,
-                rotateY: mousePosition.x * 0.1,
+                scale: isHovered ? 1.005 : 1,
+                rotateX: mousePosition.y * 0.01,
+                rotateY: mousePosition.x * 0.01,
                 opacity: 1,
               }}
               transition={{
                 type: "spring",
-                stiffness: 300,
-                damping: 10,
-                mass: 0.3,
+                stiffness: 220,
+                damping: 28,
+                mass: 0.5,
               }}
               whileHover={{
                 boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-                transition: { duration: 0.6 },
+                transition: { duration: 0.2 },
               }}
               initial={{ scale: 0.95, opacity: 0 }}
             >
