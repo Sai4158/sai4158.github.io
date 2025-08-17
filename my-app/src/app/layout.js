@@ -65,7 +65,16 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
 
-      <body className={montserrat.className}>
+      <body
+        className={montserrat.className}
+        style={{
+          background: "linear-gradient(to top, #09203f 0%, #537895 100%)",
+          minHeight: "100vh",
+          backgroundAttachment: "fixed",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
         <ToastContainer />
         <SpeedInsights />
         <PageTransition>
