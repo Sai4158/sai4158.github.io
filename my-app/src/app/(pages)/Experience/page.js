@@ -9,6 +9,7 @@ const education = {
   degree: "B.S. in Application Development",
   focus: "Data Science",
   gpa: "3.78",
+  deansList: "Dean's List",
   graduation: "May 2026",
   courses: [
     "Application Development Studio I",
@@ -57,9 +58,9 @@ const internships = [
 
 const skills = [
   "Java",
+  "AWS",
   "Spring Boot",
   "JavaScript",
-  "AWS",
   "React.js",
   "Next.js",
   "Express.js",
@@ -160,7 +161,7 @@ export default function Page() {
                 className="relative border-l-2 border-blue-400/30 ml-3 mt-4 pt-2"
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
-                transition={{ duration: 1, delay: 1.4, ease: "easeOut" }}
+                transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
               >
                 {internships.map((internship, index) => (
                   <motion.div
@@ -169,8 +170,8 @@ export default function Page() {
                     initial={{ x: -50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
-                      duration: 0.8,
-                      delay: 1.6 + index * 0.3,
+                      duration: 0.6,
+                      delay: 1.0 + index * 0.18,
                       ease: "easeOut",
                     }}
                     whileHover={{ x: 10, transition: { duration: 0.2 } }}
@@ -180,8 +181,8 @@ export default function Page() {
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{
-                        duration: 0.5,
-                        delay: 1.8 + index * 0.3,
+                        duration: 0.4,
+                        delay: 1.2 + index * 0.18,
                         type: "spring",
                         stiffness: 300,
                         damping: 20,
@@ -192,8 +193,8 @@ export default function Page() {
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{
-                        duration: 0.6,
-                        delay: 2 + index * 0.3,
+                        duration: 0.5,
+                        delay: 1.3 + index * 0.18,
                         ease: "easeOut",
                       }}
                     >
@@ -203,8 +204,8 @@ export default function Page() {
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{
-                            duration: 0.6,
-                            delay: 2.2 + index * 0.3,
+                            duration: 0.5,
+                            delay: 1.45 + index * 0.18,
                           }}
                         >
                           <a
@@ -221,8 +222,8 @@ export default function Page() {
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{
-                            duration: 0.6,
-                            delay: 2.4 + index * 0.3,
+                            duration: 0.5,
+                            delay: 1.6 + index * 0.18,
                           }}
                         >
                           {internship.duration}
@@ -232,8 +233,8 @@ export default function Page() {
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{
-                            duration: 0.6,
-                            delay: 2.6 + index * 0.3,
+                            duration: 0.5,
+                            delay: 1.75 + index * 0.18,
                           }}
                         >
                           {internship.location}
@@ -243,8 +244,8 @@ export default function Page() {
                         initial={{ x: 50, opacity: 0, scale: 0.8 }}
                         animate={{ x: 0, opacity: 1, scale: 1 }}
                         transition={{
-                          duration: 0.8,
-                          delay: 2.8 + index * 0.3,
+                          duration: 0.6,
+                          delay: 1.9 + index * 0.18,
                           ease: "easeOut",
                         }}
                         whileHover={{
@@ -320,14 +321,25 @@ export default function Page() {
                       {education.university}
                     </a>
                   </motion.h3>
-                  <motion.p
-                    className="leading-loose mb-4 text-white"
+                  <motion.div
+                    className="flex items-center gap-2 mb-2"
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 4.3, ease: "easeOut" }}
                   >
-                    {education.degree}
-                  </motion.p>
+                    <p className="leading-loose text-white">
+                      {education.degree}
+                    </p>
+                    <motion.span
+                      className="bg-yellow-500/20 text-yellow-300 px-2 py-0.5 rounded-full text-xs font-medium"
+                      whileHover={{
+                        scale: 1.05,
+                        transition: { duration: 0.2 },
+                      }}
+                    >
+                      {education.deansList}
+                    </motion.span>
+                  </motion.div>
                 </div>
                 <motion.div
                   className="text-right"
@@ -335,14 +347,17 @@ export default function Page() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 4.5, ease: "easeOut" }}
                 >
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-400 mb-1">
                     {education.graduation}
+                  </p>
+                  <p className="text-sm text-blue-300 font-medium">
+                    GPA: {education.gpa}
                   </p>
                 </motion.div>
               </motion.div>
 
               <motion.div
-                className="mt-4 flex flex-wrap gap-2"
+                className="mt-6 flex flex-wrap justify-center gap-3"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 4.7, ease: "easeOut" }}
@@ -350,17 +365,21 @@ export default function Page() {
                 {education.courses.map((course, index) => (
                   <motion.span
                     key={index}
-                    className="bg-white/10 text-white/80 py-0.5 px-2 rounded-full text-[10px] leading-tight"
+                    className="bg-white/10 text-white/90 py-1.5 px-3 rounded-lg text-xs font-medium border border-white/10 hover:bg-white/15"
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{
                       duration: 0.4,
-                      delay: 4.9 + index * 0.05,
+                      delay: 4.9 + index * 0.03,
                       type: "spring",
                       stiffness: 200,
                       damping: 15,
                     }}
-                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                    whileHover={{
+                      scale: 1.05,
+                      y: -2,
+                      transition: { duration: 0.2 },
+                    }}
                   >
                     {course}
                   </motion.span>
@@ -409,7 +428,7 @@ export default function Page() {
               </motion.h3>
 
               <motion.div
-                className="flex flex-wrap gap-2 mt-6"
+                className="flex flex-wrap justify-center gap-3 mt-6"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 6.6, ease: "easeOut" }}
@@ -417,7 +436,7 @@ export default function Page() {
                 {skills.map((skill, index) => (
                   <motion.span
                     key={skill}
-                    className="bg-white/10 text-white/80 py-2 px-4 rounded-full text-sm hover:bg-white/20 transition-colors duration-300"
+                    className="bg-white/10 text-white/90 py-1.5 px-3 rounded-lg text-xs font-medium border border-white/10 hover:bg-white/15"
                     initial={{ scale: 0, opacity: 0, y: 20 }}
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     transition={{
@@ -428,7 +447,7 @@ export default function Page() {
                       damping: 15,
                     }}
                     whileHover={{
-                      scale: 1.1,
+                      scale: 1.05,
                       y: -2,
                       transition: { duration: 0.2 },
                     }}
