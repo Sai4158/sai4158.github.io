@@ -15,7 +15,7 @@ export default function Page() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentGreeting((prev) => (prev + 1) % greetings.length);
-    }, 4000); // Slower change: 4 seconds
+    }, 5000); // Slower change: 5 seconds
 
     return () => clearInterval(interval);
   }, [greetings.length]);
@@ -136,10 +136,10 @@ export default function Page() {
                       <AnimatePresence mode="wait">
                         <motion.div
                           key={currentGreeting} // Unique key for each greeting
-                          initial={{ opacity: 0, filter: "blur(4px)" }}
-                          animate={{ opacity: 1, filter: "blur(0px)" }}
-                          exit={{ opacity: 0, filter: "blur(4px)" }}
-                          transition={{ duration: 1, ease: "easeInOut" }}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.8, ease: "easeInOut" }}
                           className="inline-block text-center md:text-left"
                         >
                           {greetings[currentGreeting] + "!"}
@@ -148,19 +148,23 @@ export default function Page() {
                     </motion.div>
                     <motion.div
                       layout
-                      initial={{ opacity: 0, filter: "blur(4px)" }}
-                      animate={{ opacity: 1, filter: "blur(0px)" }}
-                      transition={{
-                        type: "spring",
-                        damping: 20,
-                        stiffness: 100,
-                        duration: 1.5,
-                        delay: 1.2,
-                        ease: "easeInOut",
-                      }}
                       className="inline-block mt-2 md:mt-0 md:ml-4 text-center md:text-left"
                     >
-                      I&apos;m Sai Rangineeni
+                      {"I'm Sai Rangineeni".split("").map((char, index) => (
+                        <motion.span
+                          key={`${char}-${index}`}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{
+                            duration: 1.0,
+                            delay: 1.2 + index * 0.08,
+                            ease: "easeInOut",
+                          }}
+                          style={{ display: "inline-block" }}
+                        >
+                          {char === " " ? "\u00A0" : char}
+                        </motion.span>
+                      ))}
                     </motion.div>
                   </motion.h1>
 

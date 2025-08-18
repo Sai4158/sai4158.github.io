@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaYoutube, FaAward } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
@@ -103,7 +103,14 @@ const ProjectCard = ({ project, index = 0 }) => {
       </div>
 
       <div className="p-4">
-        <h3 className="text-xl font-light mb-2 text-white">{project.title}</h3>
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-xl font-light text-white">{project.title}</h3>
+          {project.isActive && (
+            <span className="bg-green-500/20 text-green-300 text-xs font-medium px-2.5 py-0.5 rounded-full">
+              Active
+            </span>
+          )}
+        </div>
         <p className="text-gray-300 text-sm mb-4 h-12 overflow-hidden">
           {project.description}
         </p>
@@ -165,44 +172,126 @@ const ProjectCard = ({ project, index = 0 }) => {
             ease: "easeOut",
           }}
         >
-          <motion.a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors duration-500"
-            onClick={(e) => e.stopPropagation()}
-            initial={{ scale: 0, rotate: -360, y: 50 }}
-            animate={{ scale: 1, rotate: 0, y: 0 }}
-            transition={{
-              duration: 0.4,
-              delay: 0.7 + index * 0.15,
-              type: "spring",
-              stiffness: 200,
-              damping: 8,
-            }}
-            whileHover={{
-              scale: 1.3,
-              rotate: 15,
-              color: "#ffffff",
-              y: -5,
-              transition: {
+          {project.awardUrl && (
+            <motion.a
+              href={project.awardUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-yellow-400 transition-colors duration-500"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0, rotate: -360, y: 50 }}
+              animate={{ scale: 1, rotate: 0, y: 0 }}
+              transition={{
+                duration: 0.4,
+                delay: 0.7 + index * 0.15,
                 type: "spring",
-                stiffness: 400,
-                damping: 10,
-              },
-            }}
-            whileTap={{
-              scale: 0.8,
-              rotate: -15,
-              transition: {
+                stiffness: 200,
+                damping: 8,
+              }}
+              whileHover={{
+                scale: 1.3,
+                rotate: 15,
+                color: "#FBBF24",
+                y: -5,
+                transition: {
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 10,
+                },
+              }}
+              whileTap={{
+                scale: 0.8,
+                rotate: -15,
+                transition: {
+                  type: "spring",
+                  stiffness: 600,
+                  damping: 15,
+                },
+              }}
+            >
+              <FaAward size={24} />
+            </motion.a>
+          )}
+          {project.videoUrl && (
+            <motion.a
+              href={project.videoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-red-500 transition-colors duration-500"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0, rotate: 360, y: 50 }}
+              animate={{ scale: 1, rotate: 0, y: 0 }}
+              transition={{
+                duration: 0.4,
+                delay: 0.8 + index * 0.15,
                 type: "spring",
-                stiffness: 600,
-                damping: 15,
-              },
-            }}
-          >
-            <FaGithub size={24} />
-          </motion.a>
+                stiffness: 200,
+                damping: 8,
+              }}
+              whileHover={{
+                scale: 1.3,
+                rotate: -15,
+                color: "#EF4444",
+                y: -5,
+                transition: {
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 10,
+                },
+              }}
+              whileTap={{
+                scale: 0.8,
+                rotate: 15,
+                transition: {
+                  type: "spring",
+                  stiffness: 600,
+                  damping: 15,
+                },
+              }}
+            >
+              <FaYoutube size={24} />
+            </motion.a>
+          )}
+          {project.githubUrl && (
+            <motion.a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors duration-500"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0, rotate: -360, y: 50 }}
+              animate={{ scale: 1, rotate: 0, y: 0 }}
+              transition={{
+                duration: 0.4,
+                delay: 0.7 + index * 0.15,
+                type: "spring",
+                stiffness: 200,
+                damping: 8,
+              }}
+              whileHover={{
+                scale: 1.3,
+                rotate: 15,
+                color: "#ffffff",
+                y: -5,
+                transition: {
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 10,
+                },
+              }}
+              whileTap={{
+                scale: 0.8,
+                rotate: -15,
+                transition: {
+                  type: "spring",
+                  stiffness: 600,
+                  damping: 15,
+                },
+              }}
+            >
+              <FaGithub size={24} />
+            </motion.a>
+          )}
           {project.liveUrl && (
             <motion.a
               href={project.liveUrl}

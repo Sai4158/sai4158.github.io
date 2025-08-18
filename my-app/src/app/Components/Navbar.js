@@ -24,10 +24,10 @@ const Navbar = () => {
           className="text-2xl font-medium relative group hover:scale-125 transition-transform duration-1000"
           href="/"
         >
-          <span className="absolute  opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-blue-200 ">
+          <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-[700ms] text-blue-200 ">
             Home
           </span>
-          <span className=" group-hover:opacity-0 transition-opacity duration-1000   ">
+          <span className=" group-hover:opacity-0 transition-opacity duration-[1400ms]   ">
             Welcome!
           </span>
         </a>

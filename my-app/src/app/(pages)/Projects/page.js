@@ -5,13 +5,14 @@ import { motion } from "framer-motion";
 
 const featuredProjects = [
   {
-    title: "GV Cricket Scorekeeper",
+    title: "GV Cricket",
     imageUrl: "/gvLogo.webp",
     description:
-      "A complete, end-to-end solution for managing and scoring cricket matches.",
-    tags: ["Next.js", "React 19", "MongoDB", "Framer Motion"],
+      "An end-to-end cricket scoring solution used by 50+ community members.",
+    tags: ["Next.js", "TailwindCSS", "MongoDB", "Framer Motion"],
     githubUrl: "https://github.com/Sai4158/gvcricket",
     liveUrl: "https://gvcricket.com",
+    isActive: true,
   },
   {
     title: "Fruit Storefront",
@@ -26,18 +27,21 @@ const featuredProjects = [
     title: "Comcast Inquire",
     imageUrl: "/ComcastInquire.png",
     description:
-      "An AI-powered customer support agent that leverages GPT-4 to provide intelligent assistance and enhance customer service efficiency.",
+      "A GPT-4 powered customer support agent that won the Comcast prize at Philly Codefest.",
     tags: ["Next.js", "GPT-4", "Redis", "Clerk"],
     githubUrl: "https://github.com/Laphatize/comcast-inquire",
     liveUrl: "https://comcast-inquire.vercel.app/",
+    awardUrl:
+      "https://drexel.edu/cci/stories/hundreds-of-coders-harness-ai-for-social-good-at-philly-codefest-2024-sponsored-by-drexel-cci/#:~:text=Comcast%20Prize%20Winners",
+    videoUrl: "https://www.youtube.com/watch?v=mzkpEsekaKg",
   },
   {
-    title: "Engineering Projects",
+    title: "Engineering Project",
     imageUrl: "/CAD.png",
     description:
       "Engineered a marble ladder automata using CAD, laser cutting, and 3D printing.",
     tags: ["CAD", "Onshape", "3D Printing"],
-    githubUrl:
+    liveUrl:
       "https://cad.onshape.com/documents/6a68262e48e7c9e68fd6c306/w/3fef6bd3b3b6402fe55b3bde/e/55f373827c28c5ed5f97f078?renderMode=0&uiState=65fcf8b5362fd31ffcd07ff2",
   },
   {
@@ -51,6 +55,7 @@ const featuredProjects = [
   },
   {
     title: "Air-Pollution-App",
+    imageUrl: "/AirPollution.jpg",
     description:
       "Web tool fetching and displaying real-time air quality data using OpenWeatherMap API.",
     tags: ["HTML", "CSS", "JavaScript", "API"],
@@ -107,6 +112,32 @@ const otherProjects = [
 ];
 
 export default function Projects() {
+  const cardVariants = [
+    {
+      initial: { opacity: 0, x: "-100vw", rotate: -15 },
+      animate: { opacity: 1, x: 0, rotate: 0 },
+    },
+    {
+      initial: { opacity: 0, y: "100vh", scale: 0.7 },
+      animate: { opacity: 1, y: 0, scale: 1 },
+    },
+    {
+      initial: { opacity: 0, x: "100vw", rotate: 15 },
+      animate: { opacity: 1, x: 0, rotate: 0 },
+    },
+    {
+      initial: { opacity: 0, x: "-100vw", y: "50vh", rotate: 15 },
+      animate: { opacity: 1, x: 0, y: 0, rotate: 0 },
+    },
+    {
+      initial: { opacity: 0, y: "-100vh", scale: 0.7 },
+      animate: { opacity: 1, y: 0, scale: 1 },
+    },
+    {
+      initial: { opacity: 0, x: "100vw", y: "-50vh", rotate: -15 },
+      animate: { opacity: 1, x: 0, y: 0, rotate: 0 },
+    },
+  ];
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -149,39 +180,34 @@ export default function Projects() {
               delay: 0.9,
               ease: "easeOut",
             }}
-          >
-            Featured Projects
-          </motion.h2>
+          ></motion.h2>
           <motion.div
             className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
           >
-            {featuredProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{
-                  y: 30,
-                  opacity: 0,
-                }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 1.25 + index * 0.1,
-                  ease: "easeOut",
-                }}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.4, ease: "easeOut" },
-                }}
-              >
-                <ProjectCard project={project} index={index} />
-              </motion.div>
-            ))}
+            {featuredProjects.map((project, index) => {
+              const variant = cardVariants[index % cardVariants.length];
+              return (
+                <motion.div
+                  key={project.title}
+                  initial={variant.initial}
+                  animate={variant.animate}
+                  transition={{
+                    duration: 1.5,
+                    delay: 0.5 + index * 0.25,
+                    ease: "easeInOut",
+                  }}
+                  whileHover={{
+                    y: -5,
+                    transition: { duration: 0.4, ease: "easeOut" },
+                  }}
+                >
+                  <ProjectCard project={project} index={index} />
+                </motion.div>
+              );
+            })}
           </motion.div>
         </motion.section>
 
@@ -209,33 +235,32 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.75, ease: "easeOut" }}
           >
-            {otherProjects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{
-                  y: 30,
-                  opacity: 0,
-                }}
-                animate={{
-                  y: 0,
-                  opacity: 1,
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 2 + index * 0.1,
-                  ease: "easeOut",
-                }}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.4, ease: "easeOut" },
-                }}
-              >
-                <ProjectCard
-                  project={project}
-                  index={index + featuredProjects.length}
-                />
-              </motion.div>
-            ))}
+            {otherProjects.map((project, index) => {
+              const variantIndex =
+                (index + featuredProjects.length) % cardVariants.length;
+              const variant = cardVariants[variantIndex];
+              return (
+                <motion.div
+                  key={project.title}
+                  initial={variant.initial}
+                  animate={variant.animate}
+                  transition={{
+                    duration: 1.5,
+                    delay: 0.5 + (index + featuredProjects.length) * 0.25,
+                    ease: "easeInOut",
+                  }}
+                  whileHover={{
+                    y: -5,
+                    transition: { duration: 0.4, ease: "easeOut" },
+                  }}
+                >
+                  <ProjectCard
+                    project={project}
+                    index={index + featuredProjects.length}
+                  />
+                </motion.div>
+              );
+            })}
           </motion.div>
         </motion.section>
       </main>
