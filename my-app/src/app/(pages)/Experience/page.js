@@ -41,7 +41,7 @@ const internships = [
   {
     company: "STiBaRC, LLC",
     role: "Software Engineer Intern",
-    duration: "May 2025 - August 2025 (4 mos)",
+    duration: "May 2025 - August 2025",
     location: "Delaware, OH",
     logo: "/stibarc.png",
     url: "https://stibarc.com/",
@@ -49,7 +49,7 @@ const internships = [
   {
     company: "CTFGuide",
     role: "Software Engineer Intern",
-    duration: "May 2024 - August 2024 (4 mos)",
+    duration: "May 2024 - August 2024",
     location: "State College, PA",
     logo: "/Ctfguide.png",
     url: "https://ctfguide.com",
@@ -273,7 +273,7 @@ export default function Page() {
               className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10 relative"
               initial={{ x: 100, opacity: 0, scale: 0.95 }}
               animate={{ x: 0, opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 3.5, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 2.8, ease: "easeOut" }}
               whileHover={{
                 scale: 1.02,
                 y: -5,
@@ -284,14 +284,14 @@ export default function Page() {
                 className="flex justify-between items-start"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 3.7, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 3.0, ease: "easeOut" }}
               >
                 <div>
                   <motion.h3
-                    className="text-2xl mb-2 flex items-center"
+                    className="text-2xl mb-2 flex items-center flex-wrap"
                     initial={{ x: -30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 3.9, ease: "easeOut" }}
+                    transition={{ duration: 0.6, delay: 3.15, ease: "easeOut" }}
                   >
                     <motion.svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -303,8 +303,8 @@ export default function Page() {
                       initial={{ rotate: -180, scale: 0 }}
                       animate={{ rotate: 0, scale: 1 }}
                       transition={{
-                        duration: 0.8,
-                        delay: 4.1,
+                        duration: 0.6,
+                        delay: 3.3,
                         ease: "easeOut",
                         type: "spring",
                         stiffness: 200,
@@ -322,16 +322,16 @@ export default function Page() {
                     </a>
                   </motion.h3>
                   <motion.div
-                    className="flex items-center gap-2 mb-2"
+                    className="flex items-center gap-2 mb-2 flex-wrap"
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 4.3, ease: "easeOut" }}
+                    transition={{ duration: 0.5, delay: 3.45, ease: "easeOut" }}
                   >
-                    <p className="leading-loose text-white">
+                    <p className="leading-loose text-white whitespace-nowrap">
                       {education.degree}
                     </p>
                     <motion.span
-                      className="bg-yellow-500/20 text-yellow-300 px-2 py-0.5 rounded-full text-xs font-medium"
+                      className="bg-black/10 backdrop-blur-lg text-yellow-400 px-2 py-0.5 rounded-full text-xs font-medium hidden sm:block"
                       whileHover={{
                         scale: 1.05,
                         transition: { duration: 0.2 },
@@ -342,10 +342,10 @@ export default function Page() {
                   </motion.div>
                 </div>
                 <motion.div
-                  className="text-right"
+                  className="flex-shrink-0 ml-4 flex flex-col items-end"
                   initial={{ x: 30, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 4.5, ease: "easeOut" }}
+                  transition={{ duration: 0.5, delay: 3.6, ease: "easeOut" }}
                 >
                   <p className="text-sm text-gray-400 mb-1">
                     {education.graduation}
@@ -353,6 +353,15 @@ export default function Page() {
                   <p className="text-sm text-blue-300 font-medium">
                     GPA: {education.gpa}
                   </p>
+                  <motion.span
+                    className="bg-black/10 backdrop-blur-lg text-yellow-400 px-2 py-0.5 rounded-full text-xs font-medium sm:hidden mt-2"
+                    whileHover={{
+                      scale: 1.05,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    {education.deansList}
+                  </motion.span>
                 </motion.div>
               </motion.div>
 
@@ -360,17 +369,17 @@ export default function Page() {
                 className="mt-6 flex flex-wrap justify-center gap-3"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 4.7, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 3.8, ease: "easeOut" }}
               >
                 {education.courses.map((course, index) => (
                   <motion.span
                     key={index}
-                    className="bg-white/10 text-white/90 py-1.5 px-3 rounded-lg text-xs font-medium border border-white/10 hover:bg-white/15"
+                    className="bg-transparent text-white/85 py-1.5 px-3 rounded-xl text-xs font-medium border border-white/20 backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] hover:border-white/40 hover:bg-white/5 transition-colors"
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{
-                      duration: 0.4,
-                      delay: 4.9 + index * 0.03,
+                      duration: 0.3,
+                      delay: 4.0 + index * 0.025,
                       type: "spring",
                       stiffness: 200,
                       damping: 15,
@@ -391,7 +400,7 @@ export default function Page() {
               className="bg-black/20 backdrop-blur-lg rounded-xl shadow-lg p-6 mb-8 border border-white/10"
               initial={{ y: 100, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 6, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 4.5, ease: "easeOut" }}
               whileHover={{
                 scale: 1.02,
                 y: -5,
@@ -402,7 +411,7 @@ export default function Page() {
                 className="text-2xl mb-4 flex items-center"
                 initial={{ x: -30, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 6.2, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 4.7, ease: "easeOut" }}
               >
                 <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -414,8 +423,8 @@ export default function Page() {
                   initial={{ rotate: -180, scale: 0 }}
                   animate={{ rotate: 0, scale: 1 }}
                   transition={{
-                    duration: 0.8,
-                    delay: 6.4,
+                    duration: 0.6,
+                    delay: 4.85,
                     ease: "easeOut",
                     type: "spring",
                     stiffness: 200,
@@ -431,17 +440,17 @@ export default function Page() {
                 className="flex flex-wrap justify-center gap-3 mt-6"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 6.6, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 5.0, ease: "easeOut" }}
               >
                 {skills.map((skill, index) => (
                   <motion.span
                     key={skill}
-                    className="bg-white/10 text-white/90 py-1.5 px-3 rounded-lg text-xs font-medium border border-white/10 hover:bg-white/15"
+                    className="bg-transparent text-white/85 py-1.5 px-3 rounded-xl text-xs font-medium border border-white/20 backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] hover:border-white/40 hover:bg-white/5 transition-colors"
                     initial={{ scale: 0, opacity: 0, y: 20 }}
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     transition={{
-                      duration: 0.5,
-                      delay: 6.8 + index * 0.03,
+                      duration: 0.4,
+                      delay: 5.2 + index * 0.025,
                       type: "spring",
                       stiffness: 200,
                       damping: 15,
