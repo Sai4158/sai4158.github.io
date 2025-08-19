@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DynamicThemeColor from "./Components/DynamicThemeColor";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -15,24 +16,32 @@ const montserrat = Montserrat({
 export const metadata = {
   title: "Sai R | Portfolio",
   description:
-    "Welcome to Sai Rangineeni's portfolio. Explore Sai's projects, experience, and skills in Human-Centered Design & Development, Software Engineering, Web Development, UI/UX Design, and more.",
+    "Explore the portfolio of Sai Rangineeni, a Software Engineer and Application Development student at Penn State.",
   keywords: [
     "Sai Rangineeni",
+    "Sai Rangineeni Penn State",
+    "Penn State",
+    "The Pennsylvania State University",
+    "STiBaRC",
+    "CTFGuide",
     "Portfolio",
-    "Human-Centered Design & Development",
+    "Full-Stack Development",
+    "Application Development",
     "Data Science",
     "Software Engineer",
     "Web Development",
-    "UI/UX Design",
+    "Java",
+    "Spring Boot",
+    "AWS",
     "React.js",
-    "TailwindCSS",
     "Next.js",
     "JavaScript",
     "Node.js",
     "SQL",
     "MongoDB",
+    "RESTful API",
     "Git",
-    "CTFGuide",
+    "TailwindCSS",
     "Music Production",
   ],
   author: "Sai Rangineeni",
@@ -40,21 +49,15 @@ export const metadata = {
   og: {
     title: "Sai Rangineeni | Portfolio",
     description:
-      "Explore Sai Rangineeni's portfolio showcasing projects, experience, and skills in software development, web development, and design.",
+      "Explore the portfolio of Sai Rangineeni, a Software Engineer and Application Development student at Penn State.",
     image: "https://i.ibb.co/dQGwy7w/Sai-Profile-pic.jpg",
   },
 };
 
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1.0,
-  themeColor: '#537895', 
 };
-
-
-
-
-
 
 export default function RootLayout({ children }) {
   return (
@@ -81,6 +84,7 @@ export default function RootLayout({ children }) {
           backgroundSize: "cover",
         }}
       >
+        <DynamicThemeColor />
         <ToastContainer />
         <SpeedInsights />
         <PageTransition>
