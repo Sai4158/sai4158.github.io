@@ -103,7 +103,7 @@ export default function Page() {
                     }}
                     whileHover={{ scale: 1.05, transition: { duration: 0.36 } }}
                   >
-                    <a href="/378xfs01/FindTheSecretHereLOL/11long">
+                    <a href="/378xfs/FindTheSecretHere/11/longpress">
                       <Image
                         src="https://i.ibb.co/dQGwy7w/Sai-Profile-pic.jpg"
                         alt="Sai Rangineeni"
