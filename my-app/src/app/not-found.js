@@ -128,7 +128,7 @@ export default function Custom404() {
                     onTouchStart={handleButtonMouseDown}
                     onTouchEnd={handleButtonMouseUp}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ userSelect: "none" }}
+                    style={{ userSelect: "none", WebkitTouchCallout: "none" }}
                   >
                     Take me back home
                   </a>
