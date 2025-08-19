@@ -77,7 +77,7 @@ export default function RootLayout({ children }) {
       <body
         className={montserrat.className}
         style={{
-          background: "linear-gradient(to top, #09203f 0%, #537895 100%)",
+          // background: "linear-gradient(to top, #09203f 0%, #537895 100%)",
           minHeight: "100vh",
           backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",

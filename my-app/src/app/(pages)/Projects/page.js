@@ -150,22 +150,22 @@ export default function Projects() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      transition={{ duration: 0.48, ease: "easeOut" }}
     >
       <main className="pt-2 px-4 pb-12 mb-14">
         <motion.section
           className="text-center"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.75, delay: 0.15, ease: "easeOut" }}
+          transition={{ duration: 0.9, delay: 0.18, ease: "easeOut" }}
         >
           <motion.h1
             className="text-3xl text-center mb-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              duration: 1,
-              delay: 0.4,
+              duration: 1.2,
+              delay: 0.48,
               ease: "easeOut",
             }}
           >
@@ -177,15 +177,15 @@ export default function Projects() {
           className="max-w-6xl mx-auto mt-16"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.9, delay: 0.6, ease: "easeOut" }}
+          transition={{ duration: 1.08, delay: 0.72, ease: "easeOut" }}
         >
           <motion.h2
             className="text-3xl font-light text-white mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              duration: 0.75,
-              delay: 0.9,
+              duration: 0.9,
+              delay: 1.08,
               ease: "easeOut",
             }}
           ></motion.h2>
@@ -193,7 +193,7 @@ export default function Projects() {
             className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.1, ease: "easeOut" }}
+            transition={{ duration: 0.72, delay: 1.32, ease: "easeOut" }}
           >
             {featuredProjects.map((project, index) => {
               const variant = cardVariants[index % cardVariants.length];
@@ -203,13 +203,13 @@ export default function Projects() {
                   initial={variant.initial}
                   animate={variant.animate}
                   transition={{
-                    duration: 1.5,
-                    delay: 0.5 + index * 0.25,
+                    duration: 1.8,
+                    delay: 0.6 + index * 0.3,
                     ease: "easeInOut",
                   }}
                   whileHover={{
                     y: -5,
-                    transition: { duration: 0.4, ease: "easeOut" },
+                    transition: { duration: 0.48, ease: "easeOut" },
                   }}
                 >
                   <ProjectCard project={project} index={index} />
@@ -223,15 +223,15 @@ export default function Projects() {
           className="max-w-6xl mx-auto mt-16"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.9, delay: 1.4, ease: "easeOut" }}
+          transition={{ duration: 1.08, delay: 1.68, ease: "easeOut" }}
         >
           <motion.h2
             className="text-3xl font-light text-white mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              duration: 0.75,
-              delay: 1.6,
+              duration: 0.9,
+              delay: 1.92,
               ease: "easeOut",
             }}
           >
@@ -241,7 +241,7 @@ export default function Projects() {
             className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.75, ease: "easeOut" }}
+            transition={{ duration: 0.72, delay: 2.1, ease: "easeOut" }}
           >
             {otherProjects.map((project, index) => {
               const variantIndex =
@@ -253,13 +253,13 @@ export default function Projects() {
                   initial={variant.initial}
                   animate={variant.animate}
                   transition={{
-                    duration: 1.5,
-                    delay: 0.5 + (index + featuredProjects.length) * 0.25,
+                    duration: 1.8,
+                    delay: 0.6 + (index + featuredProjects.length) * 0.3,
                     ease: "easeInOut",
                   }}
                   whileHover={{
                     y: -5,
-                    transition: { duration: 0.4, ease: "easeOut" },
+                    transition: { duration: 0.48, ease: "easeOut" },
                   }}
                 >
                   <ProjectCard
