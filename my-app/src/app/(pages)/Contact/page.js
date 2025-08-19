@@ -356,6 +356,19 @@ const ContactPage = () => {
               </motion.form>
             </motion.div>
           </div>
+          <motion.div
+            className="text-center mt-12"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1.5, ease: "easeOut" }}
+          >
+            <a
+              href="/"
+              className="text-white/70 hover:text-white font-light transition-colors duration-300"
+            >
+              Go to Home
+            </a>
+          </motion.div>
         </motion.section>
       </main>
     </motion.div>

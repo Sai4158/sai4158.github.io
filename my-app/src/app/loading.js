@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Loading = () => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm min-h-screen w-screen">
       <motion.div
         className="w-4 h-4 bg-white rounded-full"
         animate={{
