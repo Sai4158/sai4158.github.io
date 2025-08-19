@@ -48,8 +48,13 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1.0,
-  background: 'linear-gradient(to top, #09203f 0%, #537895 100%)',
+  background: 'linear-gradient(to top, #09203f 0%, #537895 100%)', // Note: This is a custom property
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#537895' },
+    { media: '(prefers-color-scheme: dark)', color: '#09203f' },
+  ],
 };
+
 
 
 
