@@ -46,10 +46,11 @@ export const metadata = {
 };
 
 export const viewport = {
-  width: "device-width",
+  width: 'device-width',
   initialScale: 1.0,
-  //themeColor: "#000000",
+  background: 'linear-gradient(to top, #09203f 0%, #537895 100%)',
 };
+
 
 
 export default function RootLayout({ children }) {
