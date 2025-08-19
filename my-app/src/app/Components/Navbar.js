@@ -24,15 +24,19 @@ const Navbar = () => {
           className="text-2xl font-medium relative group hover:scale-125 transition-transform duration-1000"
           href="/"
         >
-          <span className="absolute  opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-blue-200 ">
+          <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-[700ms] text-blue-200 ">
             Home
           </span>
-          <span className=" group-hover:opacity-0 transition-opacity duration-1000   ">
+          <span className=" group-hover:opacity-0 transition-opacity duration-[1400ms]   ">
             Welcome!
           </span>
         </a>
 
-        <div className="sm:hidden z-50">
+        <div
+          className={`sm:hidden z-50 transition-opacity duration-300 ${
+            isMenuOpen ? "opacity-0" : "opacity-100"
+          }`}
+        >
           <button
             onClick={toggleMenu}
             className="text-2xl bg-gray-900 p-2 rounded focus:outline-none hover:scale-90 transition-transform duration-300"
@@ -74,7 +78,7 @@ const Navbar = () => {
 
       {/* Sidebar for mobile */}
       <div
-        className={`fixed inset-y-0 right-0 w-64 bg-gray-900 h[50px] p-6 rounded-l-3xl transform transition-transform duration-[1500ms] ${
+        className={`fixed inset-y-0 right-0 w-64 bg-black/20 backdrop-blur-lg border-l border-white/10 p-6 rounded-l-3xl transform transition-transform duration-[1500ms] ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         } sm:hidden z-50`}
       >
@@ -92,7 +96,7 @@ const Navbar = () => {
 
         <nav className="mt-10 space-y-4">
           <a
-            className="block text-white font-medium hover:text-gray-300 hover:scale-95 transition-transform "
+            className="block text-white font-light hover:text-gray-300 hover:scale-95 transition-transform "
             href="/"
             onClick={toggleMenu}
           >
@@ -102,7 +106,7 @@ const Navbar = () => {
           <br />
           <br />
           <a
-            className="block text-white font-medium hover:text-gray-300  hover:scale-95 transition-transform"
+            className="block text-white font-light hover:text-gray-300  hover:scale-95 transition-transform"
             href="/Experience"
             onClick={toggleMenu}
           >
@@ -112,7 +116,7 @@ const Navbar = () => {
           <br />
           <br />
           <a
-            className="block text-white font-medium hover:text-gray-300  hover:scale-95 transition-transform"
+            className="block text-white font-light hover:text-gray-300  hover:scale-95 transition-transform"
             href="/Projects"
             onClick={toggleMenu}
           >
@@ -122,7 +126,7 @@ const Navbar = () => {
           <br />
           <br />
           <a
-            className="block text-white font-medium hover:text-gray-300  hover:scale-95 transition-transform"
+            className="block text-white font-light hover:text-gray-300  hover:scale-95 transition-transform"
             href="/Contact"
             onClick={toggleMenu}
           >
@@ -136,7 +140,7 @@ const Navbar = () => {
 
       <div
         className={`fixed inset-0 bg-black transition-opacity duration-[1500ms] ${
-          isMenuOpen ? "opacity-50" : "opacity-0 pointer-events-none"
+          isMenuOpen ? "opacity-75" : "opacity-0 pointer-events-none"
         } z-40`}
         onClick={toggleMenu}
       ></div>

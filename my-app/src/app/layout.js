@@ -1,41 +1,53 @@
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar";
 import PageTransition from "./Components/PageTransition";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata = {
   title: "Sai R | Portfolio",
   description:
-    "Welcome to Sai Rangineeni's portfolio. Explore Sai's projects, experience, and skills in Human-Centered Design & Development, Software Engineering, Web Development, UI/UX Design, and more.",
+    "Explore Sai Rangineeni's portfolio, a Software Engineer and Application Development student at Penn State.",
   keywords: [
     "Sai Rangineeni",
+    "Sai Rangineeni Penn State",
+    "Penn State",
+    "The Pennsylvania State University",
+    "STiBaRC",
+    "CTFGuide",
     "Portfolio",
-    "Human-Centered Design & Development",
+    "Full-Stack Development",
+    "Application Development",
     "Data Science",
     "Software Engineer",
     "Web Development",
-    "UI/UX Design",
+    "Java",
+    "Spring Boot",
+    "AWS",
     "React.js",
-    "TailwindCSS",
     "Next.js",
     "JavaScript",
     "Node.js",
     "SQL",
     "MongoDB",
+    "RESTful API",
     "Git",
-    "CTFGuide",
+    "TailwindCSS",
     "Music Production",
   ],
   author: "Sai Rangineeni",
   robots: "index, follow",
   og: {
     title: "Sai Rangineeni | Portfolio",
-    description:
-      "Explore Sai Rangineeni's portfolio showcasing projects, experience, and skills in software development, web development, and design.",
+    description: "Explore Sai Rangineeni's portfolio",
     image: "https://i.ibb.co/dQGwy7w/Sai-Profile-pic.jpg",
   },
 };
@@ -43,6 +55,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1.0,
+  themeColor: "#5a8198",
 };
 
 export default function RootLayout({ children }) {
@@ -60,7 +73,17 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
 
-      <body className={inter.className}>
+      <body
+        className={`${montserrat.className} font-light`}
+        style={{
+          background: "linear-gradient(to top, #09203f 0%, #5a8198 100%)",
+          minHeight: "100vh",
+          backgroundAttachment: "fixed",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <ToastContainer />
         <SpeedInsights />
         <PageTransition>
           <div className="z-50 pb-9">
