@@ -3,13 +3,13 @@ import React, { useState, useRef } from "react";
 import emailjs from "emailjs-com";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { ClipLoader } from "react-spinners";
 import { motion } from "framer-motion";
+import StatusPopup from "../../Components/StatusPopup"; // Import the custom popup
 
 const ContactPage = () => {
   const [loading, setLoading] = useState(false);
+  const [popup, setPopup] = useState({ type: "", message: "" }); // State for the popup
   const formRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -58,20 +58,19 @@ const ContactPage = () => {
       .then(
         (result) => {
           console.log(result.text);
-          toast.success("Message sent! Check your email for a confirmation.", {
-            position: "top-center",
-            autoClose: 11000,
+          setPopup({
+            type: "success",
+            message: "Message sent! Check your email for a confirmation.",
           });
           setLoading(false);
         },
         (error) => {
           console.log(error.text);
-          toast.error(
-            "Failed to send the message. Please try again or email me.",
-            {
-              position: "bottom-center",
-            }
-          );
+          setPopup({
+            type: "error",
+            message:
+              "Failed to send the message. Please try again or email me.",
+          });
           setLoading(false);
         }
       );
@@ -84,6 +83,11 @@ const ContactPage = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
+      <StatusPopup
+        type={popup.type}
+        message={popup.message}
+        onClose={() => setPopup({ type: "", message: "" })}
+      />
       <main className="pt-1 mb-64 px-4">
         <motion.section
           id="contact"
