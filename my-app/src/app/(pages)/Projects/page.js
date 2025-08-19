@@ -6,7 +6,15 @@ import { motion } from "framer-motion";
 const featuredProjects = [
   {
     title: "GV Cricket",
-    imageUrl: "/gvLogo.webp",
+    imageUrls: [
+      "/gvLogo.webp",
+      "/gv1.jpg",
+      "/gv2.jpg",
+      "/gvLogo.webp",
+      "/gv3.jpg",
+      "/gv4.jpg",
+      "/gv5.jpg",
+    ],
     description:
       "An end-to-end cricket scoring solution used by 50+ community members.",
     tags: ["Next.js", "TailwindCSS", "MongoDB", "Framer Motion"],

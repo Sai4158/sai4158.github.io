@@ -3,13 +3,62 @@
 import Image from "next/image";
 import { FaGithub, FaYoutube, FaAward } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
-import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect, useMemo } from "react";
+
+// Global cache to store preloaded images and prevent duplicate requests
+const imageCache = new Set();
 
 const ProjectCard = ({ project, index = 0 }) => {
   const cardRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+  const autoplayTimeoutRef = useRef(null);
+
+  // Memoize images array to prevent unnecessary re-renders and re-preloading
+  const images = useMemo(() => {
+    const imageArray =
+      project.imageUrls || (project.imageUrl ? [project.imageUrl] : []);
+    // Remove duplicates by converting to Set and back to Array
+    return [...new Set(imageArray)];
+  }, [project.imageUrls, project.imageUrl]);
+
+  const startAutoplay = () => {
+    if (images.length <= 1) return;
+    stopAutoplay(); // Clear existing timer
+    autoplayTimeoutRef.current = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 1500);
+  };
+
+  const stopAutoplay = () => {
+    if (autoplayTimeoutRef.current) {
+      clearInterval(autoplayTimeoutRef.current);
+      autoplayTimeoutRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    // Preload images only if they haven't been cached yet
+    images.forEach((src) => {
+      if (!imageCache.has(src)) {
+        const img = new window.Image();
+        img.onload = () => {
+          imageCache.add(src);
+        };
+        img.onerror = () => {
+          console.warn(`Failed to preload image: ${src}`);
+        };
+        img.src = src;
+      }
+    });
+  }, [images]); // Depend on memoized images array
+
+  useEffect(() => {
+    startAutoplay();
+    return () => stopAutoplay();
+  }, [images.length]);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -37,10 +86,7 @@ const ProjectCard = ({ project, index = 0 }) => {
   return (
     <motion.div
       ref={cardRef}
-      className="bg-black/20 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden cursor-pointer border border-white/10 group"
-      onClick={() =>
-        window.open(project.liveUrl || project.githubUrl, "_blank")
-      }
+      className="bg-black/20 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden border border-white/10 group"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -70,34 +116,36 @@ const ProjectCard = ({ project, index = 0 }) => {
         },
       }}
     >
-      <div className="relative overflow-hidden">
-        {project.imageUrl ? (
-          <motion.div
-            className="relative"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
-            <Image
-              src={project.imageUrl}
-              alt={project.title}
-              width={400}
-              height={200}
-              className="w-full h-44 object-cover"
-            />
+      <div
+        className="relative overflow-hidden h-44 cursor-pointer"
+        onClick={() =>
+          window.open(project.liveUrl || project.githubUrl, "_blank")
+        }
+      >
+        {images.length > 0 ? (
+          <AnimatePresence initial={false}>
             <motion.div
-              className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100"
-              transition={{ duration: 0.6 }}
-            />
-          </motion.div>
-        ) : (
-          <div className="h-44 flex items-center justify-center bg-gradient-to-br from-gray-800/50 to-gray-900/50">
-            <motion.h3
-              className="text-2xl font-light text-white/50"
-              whileHover={{ opacity: 0.7 }}
-              transition={{ duration: 0.6 }}
+              key={currentImage}
+              className="absolute inset-0"
+              initial={{ x: 300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -300, opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
             >
+              <Image
+                src={images[currentImage]}
+                alt={`${project.title} screenshot ${currentImage + 1}`}
+                width={400}
+                height={200}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
+        ) : (
+          <div className="h-full flex items-center justify-center bg-gradient-to-br from-gray-800/50 to-gray-900/50">
+            <h3 className="text-2xl font-light text-white/50">
               {project.title}
-            </motion.h3>
+            </h3>
           </div>
         )}
       </div>
