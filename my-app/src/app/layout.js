@@ -48,7 +48,9 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1.0,
+  //themeColor: "#000000",
 };
+
 
 export default function RootLayout({ children }) {
   return (
@@ -68,7 +70,7 @@ export default function RootLayout({ children }) {
       <body
         className={montserrat.className}
         style={{
-          // background: "linear-gradient(to top, #09203f 0%, #537895 100%)",
+          background: "linear-gradient(to top, #09203f 0%, #537895 100%)",
           minHeight: "100vh",
           backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
