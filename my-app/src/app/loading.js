@@ -1,16 +1,23 @@
+"use client";
+
 import React from "react";
-import { ClipLoader } from "react-spinners";
+import { motion } from "framer-motion";
 
 const Loading = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900">
-      <ClipLoader color="white" size={50} />
-      <a
-        href="/"
-        className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300 mt-4"
-      >
-        Refresh
-      </a>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm">
+      <motion.div
+        className="w-4 h-4 bg-white rounded-full"
+        animate={{
+          scale: [1, 1.5, 1],
+          opacity: [0.5, 1, 0.5],
+        }}
+        transition={{
+          duration: 2,
+          ease: "easeInOut",
+          repeat: Infinity,
+        }}
+      />
     </div>
   );
 };
