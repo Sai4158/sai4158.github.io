@@ -127,6 +127,8 @@ export default function Custom404() {
                     onMouseUp={handleButtonMouseUp}
                     onTouchStart={handleButtonMouseDown}
                     onTouchEnd={handleButtonMouseUp}
+                    onDragStart={(e) => e.preventDefault()}
+                    style={{ userSelect: "none" }}
                   >
                     Take me back home
                   </a>

@@ -106,6 +106,8 @@ export default function Page() {
                         width={320}
                         height={240}
                         className="w-full h-full object-cover"
+                        onDragStart={(e) => e.preventDefault()}
+                        style={{ userSelect: "none" }}
                       />
                     </a>
                   </motion.div>
