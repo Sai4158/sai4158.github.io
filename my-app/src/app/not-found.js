@@ -128,9 +128,19 @@ export default function Custom404() {
                     onTouchStart={handleButtonMouseDown}
                     onTouchEnd={handleButtonMouseUp}
                     onDragStart={(e) => e.preventDefault()}
+                    style={{
+                      userSelect: "none",
+                      WebkitUserSelect: "none",
+                      msUserSelect: "none",
+                      WebkitTouchCallout: "none",
+                      pointerEvents: "none",
+                    }}
                   >
                     <span>Take me back home</span>
-                    <div className="absolute inset-0"></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{ pointerEvents: "auto" }}
+                    ></div>
                   </a>
                 </motion.div>
               </motion.button>
