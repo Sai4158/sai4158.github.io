@@ -99,7 +99,7 @@ export default function Page() {
                     transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   >
-                    <a href="/404LOL">
+                    <a href="/378xfs01/FindTheSecretHereLOL/11long">
                       <Image
                         src="https://i.ibb.co/dQGwy7w/Sai-Profile-pic.jpg"
                         alt="Sai Rangineeni"
