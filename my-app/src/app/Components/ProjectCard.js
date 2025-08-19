@@ -13,6 +13,7 @@ const ProjectCard = ({ project, index = 0 }) => {
   const cardRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [mouseIntensity, setMouseIntensity] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const autoplayTimeoutRef = useRef(null);
 
@@ -70,8 +71,16 @@ const ProjectCard = ({ project, index = 0 }) => {
     const mouseX = e.clientX - centerX;
     const mouseY = e.clientY - centerY;
 
-    // Very fast and responsive magnetic effect
-    setMousePosition({ x: mouseX * 0.12, y: mouseY * 0.12 });
+    // Enhanced magnetic effect - more responsive and dynamic
+    const distance = Math.sqrt(mouseX * mouseX + mouseY * mouseY);
+    const maxDistance = Math.max(rect.width, rect.height) / 2;
+    const intensity = Math.min(distance / maxDistance, 1);
+
+    setMouseIntensity(intensity);
+    setMousePosition({
+      x: mouseX * 0.15 * (1 + intensity * 0.5),
+      y: mouseY * 0.15 * (1 + intensity * 0.5),
+    });
   };
 
   const handleMouseEnter = () => {
@@ -80,40 +89,48 @@ const ProjectCard = ({ project, index = 0 }) => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setMousePosition({ x: 0, y: 0 });
+    setMouseIntensity(0);
+    // Smooth return to center with slight delay for natural feel
+    setTimeout(() => {
+      setMousePosition({ x: 0, y: 0 });
+    }, 50);
   };
 
   return (
     <motion.div
       ref={cardRef}
-      className="bg-black/20 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden border border-white/10 group"
+      className="bg-black/20 backdrop-blur-lg rounded-lg shadow-lg overflow-hidden border border-white/10 group relative"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       animate={{
-        x: mousePosition.x,
-        y: mousePosition.y,
-        scale: isHovered ? 1.02 : 1,
-        rotateX: mousePosition.y * 0.1,
-        rotateY: mousePosition.x * 0.1,
+        x: mousePosition.x * 0.8,
+        y: mousePosition.y * 0.8,
+        scale: isHovered ? 1.03 : 1,
+        rotateX: mousePosition.y * 0.08,
+        rotateY: mousePosition.x * 0.08,
       }}
       transition={{
         type: "spring",
-        stiffness: 600,
-        damping: 8,
-        mass: 0.2,
+        stiffness: 800,
+        damping: 12,
+        mass: 0.15,
       }}
       whileHover={{
-        boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-        transition: { duration: 0.2 },
+        boxShadow: `0 ${15 + mouseIntensity * 10}px ${
+          35 + mouseIntensity * 15
+        }px rgba(0,0,0,${0.3 + mouseIntensity * 0.2})`,
+        transition: { duration: 0.1 },
       }}
-      whileTap={{
-        scale: 0.95,
-        transition: {
-          type: "spring",
-          stiffness: 800,
-          damping: 5,
-        },
+      style={{
+        transformStyle: "preserve-3d",
+        perspective: "1000px",
+        borderColor: `rgba(255,255,255,${0.1 + mouseIntensity * 0.2})`,
+        boxShadow: isHovered
+          ? `inset 0 0 ${20 + mouseIntensity * 10}px rgba(255,255,255,${
+              0.05 + mouseIntensity * 0.1
+            })`
+          : "none",
       }}
     >
       <div
@@ -211,7 +228,11 @@ const ProjectCard = ({ project, index = 0 }) => {
         </motion.div>
 
         <motion.div
-          className="flex justify-end items-center gap-4"
+          className="flex justify-end items-center gap-4 relative z-10"
+          style={{
+            transform: "translateZ(10px)",
+            pointerEvents: "auto",
+          }}
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
@@ -225,35 +246,43 @@ const ProjectCard = ({ project, index = 0 }) => {
               href={project.awardUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-yellow-400 transition-colors duration-500"
-              onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0, rotate: -360, y: 50 }}
+              className="text-gray-400 hover:text-yellow-400 transition-colors duration-300 relative z-20 block p-1 -m-1"
+              style={{
+                pointerEvents: "auto",
+                cursor: "pointer",
+                touchAction: "manipulation",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                window.open(project.awardUrl, "_blank", "noopener,noreferrer");
+              }}
+              initial={{ scale: 0, rotate: -180, y: 20 }}
               animate={{ scale: 1, rotate: 0, y: 0 }}
               transition={{
                 duration: 0.4,
-                delay: 0.7 + index * 0.15,
+                delay: 0.7 + index * 0.1,
                 type: "spring",
-                stiffness: 200,
-                damping: 8,
+                stiffness: 300,
+                damping: 12,
               }}
               whileHover={{
-                scale: 1.3,
-                rotate: 15,
+                scale: 1.2,
+                rotate: 10,
                 color: "#FBBF24",
-                y: -5,
+                y: -3,
                 transition: {
                   type: "spring",
-                  stiffness: 400,
-                  damping: 10,
+                  stiffness: 500,
+                  damping: 15,
                 },
               }}
               whileTap={{
-                scale: 0.8,
-                rotate: -15,
+                scale: 0.9,
                 transition: {
                   type: "spring",
                   stiffness: 600,
-                  damping: 15,
+                  damping: 20,
                 },
               }}
             >
@@ -265,35 +294,43 @@ const ProjectCard = ({ project, index = 0 }) => {
               href={project.videoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-red-500 transition-colors duration-500"
-              onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0, rotate: 360, y: 50 }}
+              className="text-gray-400 hover:text-red-500 transition-colors duration-300 relative z-20 block p-1 -m-1"
+              style={{
+                pointerEvents: "auto",
+                cursor: "pointer",
+                touchAction: "manipulation",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                window.open(project.videoUrl, "_blank", "noopener,noreferrer");
+              }}
+              initial={{ scale: 0, rotate: 180, y: 20 }}
               animate={{ scale: 1, rotate: 0, y: 0 }}
               transition={{
                 duration: 0.4,
-                delay: 0.8 + index * 0.15,
+                delay: 0.8 + index * 0.1,
                 type: "spring",
-                stiffness: 200,
-                damping: 8,
+                stiffness: 300,
+                damping: 12,
               }}
               whileHover={{
-                scale: 1.3,
-                rotate: -15,
+                scale: 1.2,
+                rotate: -10,
                 color: "#EF4444",
-                y: -5,
+                y: -3,
                 transition: {
                   type: "spring",
-                  stiffness: 400,
-                  damping: 10,
+                  stiffness: 500,
+                  damping: 15,
                 },
               }}
               whileTap={{
-                scale: 0.8,
-                rotate: 15,
+                scale: 0.9,
                 transition: {
                   type: "spring",
                   stiffness: 600,
-                  damping: 15,
+                  damping: 20,
                 },
               }}
             >
@@ -305,35 +342,43 @@ const ProjectCard = ({ project, index = 0 }) => {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors duration-500"
-              onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0, rotate: -360, y: 50 }}
+              className="text-gray-400 hover:text-white transition-colors duration-300 relative z-20 block p-1 -m-1"
+              style={{
+                pointerEvents: "auto",
+                cursor: "pointer",
+                touchAction: "manipulation",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                window.open(project.githubUrl, "_blank", "noopener,noreferrer");
+              }}
+              initial={{ scale: 0, rotate: -180, y: 20 }}
               animate={{ scale: 1, rotate: 0, y: 0 }}
               transition={{
                 duration: 0.4,
-                delay: 0.7 + index * 0.15,
+                delay: 0.7 + index * 0.1,
                 type: "spring",
-                stiffness: 200,
-                damping: 8,
+                stiffness: 300,
+                damping: 12,
               }}
               whileHover={{
-                scale: 1.3,
-                rotate: 15,
+                scale: 1.2,
+                rotate: 10,
                 color: "#ffffff",
-                y: -5,
+                y: -3,
                 transition: {
                   type: "spring",
-                  stiffness: 400,
-                  damping: 10,
+                  stiffness: 500,
+                  damping: 15,
                 },
               }}
               whileTap={{
-                scale: 0.8,
-                rotate: -15,
+                scale: 0.9,
                 transition: {
                   type: "spring",
                   stiffness: 600,
-                  damping: 15,
+                  damping: 20,
                 },
               }}
             >
@@ -345,35 +390,43 @@ const ProjectCard = ({ project, index = 0 }) => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors duration-500"
-              onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0, rotate: 360, y: 50 }}
+              className="text-gray-400 hover:text-white transition-colors duration-300 relative z-20 block p-1 -m-1"
+              style={{
+                pointerEvents: "auto",
+                cursor: "pointer",
+                touchAction: "manipulation",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                window.open(project.liveUrl, "_blank", "noopener,noreferrer");
+              }}
+              initial={{ scale: 0, rotate: 180, y: 20 }}
               animate={{ scale: 1, rotate: 0, y: 0 }}
               transition={{
                 duration: 0.4,
-                delay: 0.8 + index * 0.15,
+                delay: 0.8 + index * 0.1,
                 type: "spring",
-                stiffness: 200,
-                damping: 8,
+                stiffness: 300,
+                damping: 12,
               }}
               whileHover={{
-                scale: 1.3,
-                rotate: -15,
+                scale: 1.2,
+                rotate: -10,
                 color: "#ffffff",
-                y: -5,
+                y: -3,
                 transition: {
                   type: "spring",
-                  stiffness: 400,
-                  damping: 10,
+                  stiffness: 500,
+                  damping: 15,
                 },
               }}
               whileTap={{
-                scale: 0.8,
-                rotate: 15,
+                scale: 0.9,
                 transition: {
                   type: "spring",
                   stiffness: 600,
-                  damping: 15,
+                  damping: 20,
                 },
               }}
             >
