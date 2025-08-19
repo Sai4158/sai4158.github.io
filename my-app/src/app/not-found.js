@@ -122,15 +122,15 @@ export default function Custom404() {
                 <motion.div whileTap={{ scale: 0.95 }}>
                   <a
                     href="/"
-                    className="bg-blue-800 hover:bg-blue-600 text-white py-4 px-10 text-xl rounded-lg transition-all duration-300 ease-in-out"
+                    className="bg-blue-800 hover:bg-blue-600 text-white py-4 px-10 text-xl rounded-lg transition-all duration-300 ease-in-out relative inline-block select-none"
                     onMouseDown={handleButtonMouseDown}
                     onMouseUp={handleButtonMouseUp}
                     onTouchStart={handleButtonMouseDown}
                     onTouchEnd={handleButtonMouseUp}
                     onDragStart={(e) => e.preventDefault()}
-                    style={{ userSelect: "none", WebkitTouchCallout: "none" }}
                   >
-                    Take me back home
+                    <span>Take me back home</span>
+                    <div className="absolute inset-0"></div>
                   </a>
                 </motion.div>
               </motion.button>
