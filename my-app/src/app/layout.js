@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 export const metadata = {
   title: "Sai R | Portfolio",
   description:
-    "Explore the portfolio of Sai Rangineeni, a Software Engineer and Application Development student at Penn State.",
+    "Explore Sai Rangineeni's portfolio, a Software Engineer and Application Development student at Penn State.",
   keywords: [
     "Sai Rangineeni",
     "Sai Rangineeni Penn State",
@@ -47,8 +47,7 @@ export const metadata = {
   robots: "index, follow",
   og: {
     title: "Sai Rangineeni | Portfolio",
-    description:
-      "Explore the portfolio of Sai Rangineeni, a Software Engineer and Application Development student at Penn State.",
+    description: "Explore Sai Rangineeni's portfolio",
     image: "https://i.ibb.co/dQGwy7w/Sai-Profile-pic.jpg",
   },
 };
