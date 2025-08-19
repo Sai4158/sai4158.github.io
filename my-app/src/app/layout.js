@@ -48,9 +48,9 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1.0,
-  // The themeColor is set to the lighter blue from the top of your gradient.
-  themeColor: '#537895',
+  themeColor: '#09203f', // This is the key!
 };
+
 
 
 
