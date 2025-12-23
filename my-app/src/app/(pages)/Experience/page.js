@@ -8,7 +8,7 @@ const education = {
   university: "The Pennsylvania State University",
   degree: "B.S. in Application Development",
   focus: "Data Science",
-  gpa: "3.78",
+  gpa: "3.81",
   deansList: "Dean's List",
   graduation: "May 2026",
   courses: [
